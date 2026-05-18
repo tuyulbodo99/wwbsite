@@ -1,23 +1,32 @@
 User-agent: *
 Allow: /
-Disallow: /cart.js
-Disallow: /cart.json
 Disallow: /admin/
 Disallow: /private/
+Disallow: /offline.html
+Disallow: /success.html
+Disallow: /sw.js
+Disallow: /manifest.json
+Disallow: /analytics-events.js
+Disallow: /protect.js
 
-Sitemap: https://warcehsubang.xyz/sitemap.xml
-Host: warcehsubang.xyz
-
+# Google Search
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 
-User-agent: AdsBot-Google
-Allow: /
-Crawl-delay: 1
-
+# Google AdSense — akses penuh ke semua halaman konten
 User-agent: Mediapartners-Google
 Allow: /
-Disallow: /kontak.html
-Disallow: /privacy-policy.html
-Disallow: /terms-of-service.html
+
+# Google Ads bot
+User-agent: AdsBot-Google
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Sitemap
+Sitemap: https://warcehsubang.xyz/sitemap.xml
+Host: warcehsubang.xyz
