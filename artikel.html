@@ -286,9 +286,70 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Article 5: Cara Simpan Obat -->
+                        <div class="col-md-6 article-item extra-article" data-category="obat" style="display:none">
+                            <div class="article-card">
+                                <div class="article-img-wrapper">
+                                    <img src="https://res.cloudinary.com/dihriqgow/image/upload/v1778535603/2018_1122_14152900SILO-720x404_n4srta.jpg" class="article-img" alt="Simpan Obat" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-1">Obat</span>
+                                    <h5 class="card-title">Cara Simpan Obat yang Benar</h5>
+                                    <p class="article-meta mb-2"><i class="far fa-calendar me-1"></i>6 Mei 2026</p>
+                                    <p class="card-text">Jangan simpan obat di tempat lembab atau terkena sinar matahari langsung...</p>
+                                    <a href="obat-bebas.html" class="btn-read"><i class="fas fa-arrow-right"></i> Baca</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Article 6: Bahaya Self-Medication -->
+                        <div class="col-md-6 article-item extra-article" data-category="penyakit" style="display:none">
+                            <div class="article-card">
+                                <div class="article-img-wrapper">
+                                    <img src="https://res.cloudinary.com/dihriqgow/image/upload/v1778535603/B0B5CADCD3BB14925C8650AF8CC89CA16FB2C2D029582252C3D67173BFAC5F99_713x460_msw6dm.jpg" class="article-img" alt="Self Medication" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-1">Penyakit</span>
+                                    <h5 class="card-title">Bahaya Self-Medication Sembarangan</h5>
+                                    <p class="article-meta mb-2"><i class="far fa-calendar me-1"></i>5 Mei 2026</p>
+                                    <p class="card-text">Minum obat tanpa resep dokter bisa berbahaya. Ini yang harus Anda tahu...</p>
+                                    <a href="kontak.html" class="btn-read"><i class="fas fa-arrow-right"></i> Baca</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Article 7: Pola Hidup Sehat -->
+                        <div class="col-md-6 article-item extra-article" data-category="herbal" style="display:none">
+                            <div class="article-card">
+                                <div class="article-img-wrapper">
+                                    <img src="https://res.cloudinary.com/dihriqgow/image/upload/v1778535608/img_20230906_172912189_xn7ygh.jpg" class="article-img" alt="Pola Hidup Sehat" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-1">Herbal</span>
+                                    <h5 class="card-title">Pola Hidup Sehat Setiap Hari</h5>
+                                    <p class="article-meta mb-2"><i class="far fa-calendar me-1"></i>4 Mei 2026</p>
+                                    <p class="card-text">Tidur cukup, minum air putih, dan olahraga ringan adalah kunci kesehatan...</p>
+                                    <a href="herbal-sehat.html" class="btn-read"><i class="fas fa-arrow-right"></i> Baca</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Article 8: Tips Minum Obat -->
+                        <div class="col-md-6 article-item extra-article" data-category="vitamin" style="display:none">
+                            <div class="article-card">
+                                <div class="article-img-wrapper">
+                                    <img src="https://res.cloudinary.com/dihriqgow/image/upload/v1778899338/1778898381_uovhf8.png" class="article-img" alt="Tips Minum Obat" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-1">Vitamin</span>
+                                    <h5 class="card-title">Tips Minum Obat & Vitamin yang Tepat</h5>
+                                    <p class="article-meta mb-2"><i class="far fa-calendar me-1"></i>3 Mei 2026</p>
+                                    <p class="card-text">Waktu dan cara konsumsi obat yang benar agar efeknya maksimal bagi tubuh...</p>
+                                    <a href="vitamin-c.html" class="btn-read"><i class="fas fa-arrow-right"></i> Baca</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mt-4 text-center">
-                        <button class="btn btn-outline-primary rounded-pill px-4" onclick="loadMoreArticles()"><i class="fas fa-sync-alt me-2"></i>Muat Lainnya</button>
+                    <div class="mt-4 text-center" id="loadMoreArticlesWrapper">
+                        <button class="btn btn-outline-primary rounded-pill px-4" id="btnLoadMoreArticles" onclick="loadMoreArticles()"><i class="fas fa-sync-alt me-2"></i>Muat Lainnya</button>
                     </div>
                 </div>
 
@@ -441,7 +502,20 @@
         updCart();
 
         // === ARTICLE FUNCTIONS ===
-        function loadMoreArticles(){var b=event.target;b.disabled=true;b.innerHTML='<i class="fas fa-spinner fa-spin me-2"></i>Memuat...';setTimeout(function(){b.disabled=false;b.innerHTML='<i class="fas fa-sync-alt me-2"></i>Muat Lainnya';toast('✅ Semua artikel telah dimuat!')},1000)}
+        function loadMoreArticles(){
+            var btn=document.getElementById('btnLoadMoreArticles');
+            btn.disabled=true;
+            btn.innerHTML='<i class="fas fa-spinner fa-spin me-2"></i>Memuat...';
+            setTimeout(function(){
+                var extras=document.querySelectorAll('.extra-article');
+                extras.forEach(function(el){
+                    el.style.display='block';
+                    el.classList.remove('extra-article');
+                });
+                document.getElementById('loadMoreArticlesWrapper').style.display='none';
+                toast('✅ '+extras.length+' artikel berhasil dimuat!');
+            },800);
+        }
         function searchArticles(){var q=document.getElementById('searchInput').value.trim();if(!q)return alert('Masukkan kata kunci!');toast('🔍 Mencari: "'+q+'"');filterBySearch(q)}
         function filterBySearch(q){var items=document.querySelectorAll('.article-item');var cnt=0;items.forEach(function(it){var t=it.innerText.toLowerCase();if(t.includes(q.toLowerCase())){it.style.display='block';cnt++}else{it.style.display='none'}});toast(cnt+' artikel ditemukan')}
         function filterCategory(c){toast('📁 Filter: '+c.toUpperCase());var items=document.querySelectorAll('.article-item');var cnt=0;items.forEach(function(it){if(c==='all'||it.getAttribute('data-category')===c){it.style.display='block';cnt++}else{it.style.display='none'}});toast(cnt+' artikel ditemukan')}
