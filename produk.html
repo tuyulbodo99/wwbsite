@@ -163,10 +163,16 @@
                     <li class="nav-item"><a class="nav-link" href="kontak.html"><i class="fas fa-phone-alt"></i> Kontak</a></li>
                     <li class="nav-item"><a class="nav-link" href="artikel.html"><i class="fas fa-newspaper"></i> Artikel</a></li>
                     <li class="nav-item ms-lg-2">
-                        <button class="btn btn-outline-primary rounded-pill position-relative" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">
+                        <a href="favorit.html" class="btn btn-outline-danger rounded-pill position-relative">
+                            <i class="fas fa-heart"></i>
+                            <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:.7rem;display:none">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a href="keranjang.html" class="btn btn-outline-primary rounded-pill position-relative">
                             <i class="fas fa-shopping-cart"></i>
                             <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:.7rem;display:none">0</span>
-                        </button>
+                        </a>
                     </li>
                     <li class="nav-item ms-lg-2"><a href="https://wa.me/6283195664588" class="btn btn-success rounded-pill btn-sm px-3"><i class="fab fa-whatsapp"></i> Konsultasi</a></li>
                 </ul>
@@ -284,7 +290,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('ob001','Paracetamol 500mg',15000,'https://i.ibb.co.com/JjyXPs7g/Pfizer-Paracetamol500mg-Film-Coated-Tablets24-Pack.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'ob001','Paracetamol 500mg',15000,'https://i.ibb.co.com/JjyXPs7g/Pfizer-Paracetamol500mg-Film-Coated-Tablets24-Pack.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -305,7 +311,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('ob002','Promag',28000,'https://i.ibb.co.com/JwjHQ7pN/785226-7-1-2026-14-35-34.webp')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'ob002','Promag',28000,'https://i.ibb.co.com/JwjHQ7pN/785226-7-1-2026-14-35-34.webp')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -326,7 +332,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('vt003','Vitamin C 1000mg',45000,'https://i.ibb.co.com/bgR5f8mW/vitamin-c-yang-bagus-untuk-daya-tahan-tubuh-4.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'vt003','Vitamin C 1000mg',45000,'https://i.ibb.co.com/bgR5f8mW/vitamin-c-yang-bagus-untuk-daya-tahan-tubuh-4.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -347,7 +353,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('sp004','Excymer',95000,'https://i.ibb.co.com/HLY6P230/2018-1122-14152900-SILO-720x404.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'sp004','Excymer',95000,'https://i.ibb.co.com/HLY6P230/2018-1122-14152900-SILO-720x404.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -369,7 +375,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('ob005','Threx',42000,'https://i.ibb.co.com/LzhYjvTv/B0-B5-CADCD3-BB14925-C8650-AF8-CC89-CA16-FB2-C2-D029582252-C3-D67173-BFAC5-F99-713x460.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'ob005','Threx',42000,'https://i.ibb.co.com/LzhYjvTv/B0-B5-CADCD3-BB14925-C8650-AF8-CC89-CA16-FB2-C2-D029582252-C3-D67173-BFAC5-F99-713x460.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -390,7 +396,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('vt006','Dobel Y',35000,'https://i.ibb.co.com/sdwgk4W4/img-20230906-172912189.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'vt006','Dobel Y',35000,'https://i.ibb.co.com/sdwgk4W4/img-20230906-172912189.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -411,7 +417,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('ob007','Antimo',12000,'https://i.ibb.co.com/vxGGTsyp/Antimo-Tablet.png')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'ob007','Antimo',12000,'https://i.ibb.co.com/vxGGTsyp/Antimo-Tablet.png')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -432,7 +438,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('vt008','Neurobion Forte',55000,'https://i.ibb.co.com/Pv2FGTKT/neurobion-neurobion-forte-10-tablet-full14-fgjqaawi.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'vt008','Neurobion Forte',55000,'https://i.ibb.co.com/Pv2FGTKT/neurobion-neurobion-forte-10-tablet-full14-fgjqaawi.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -453,7 +459,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('pw009','Minyak Telon Bayi',32000,'https://i.ibb.co.com/wF1QLnqF/brd-44261-cussons-baby-minyak-telon-plus-minyak-telon-bayi-ukuran-60-ml-full01-f64f8f44.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'pw009','Minyak Telon Bayi',32000,'https://i.ibb.co.com/wF1QLnqF/brd-44261-cussons-baby-minyak-telon-plus-minyak-telon-bayi-ukuran-60-ml-full01-f64f8f44.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -474,7 +480,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('pw010','Tisu Basah Bayi',28000,'https://i.ibb.co.com/tpXrnBSx/Indomaret-Wet-Tissue-Baby-50-S-Non-Alcohol.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'pw010','Tisu Basah Bayi',28000,'https://i.ibb.co.com/tpXrnBSx/Indomaret-Wet-Tissue-Baby-50-S-Non-Alcohol.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -495,7 +501,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('hb011','Temulawak Instan',25000,'https://i.ibb.co.com/sdwgk4W4/img-20230906-172912189.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'hb011','Temulawak Instan',25000,'https://i.ibb.co.com/sdwgk4W4/img-20230906-172912189.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -516,7 +522,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('pw012','Hand Sanitizer',42000,'https://i.ibb.co.com/ns9M0v3r/imagiyhjes-4.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'pw012','Hand Sanitizer',42000,'https://i.ibb.co.com/ns9M0v3r/imagiyhjes-4.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -537,7 +543,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('pw013','Masker Medis',35000,'https://i.ibb.co.com/XrtwnxYB/images-2.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'pw013','Masker Medis',35000,'https://i.ibb.co.com/XrtwnxYB/images-2.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -558,7 +564,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('ak014','Tensimeter Digital',285000,'https://i.ibb.co.com/rK5pqgTc/id-11134207-7r98p-lx3qx1do8swr32.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'ak014','Tensimeter Digital',285000,'https://i.ibb.co.com/rK5pqgTc/id-11134207-7r98p-lx3qx1do8swr32.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -579,7 +585,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('ak015','Gluco Dr',195000,'https://i.ibb.co.com/HDwY92Y4/imagecgdhs-4.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'ak015','Gluco Dr',195000,'https://i.ibb.co.com/HDwY92Y4/imagecgdhs-4.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -600,7 +606,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('pw016','Body Massage Oil',48000,'https://i.ibb.co.com/W4b2RttT/1659794970-621f3a3b5c4c6021e0039d07.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'pw016','Body Massage Oil',48000,'https://i.ibb.co.com/W4b2RttT/1659794970-621f3a3b5c4c6021e0039d07.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -624,7 +630,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('vd3001','Vitamin D3 1000IU',65000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535607/1382757_720_yf2or2.jpg')"><i class="fas fa-cart-plus"></i> Beli</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'vd3001','Vitamin D3 1000IU',65000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535607/1382757_720_yf2or2.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -643,7 +649,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('ome001','Omeprazole 20mg',35000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535603/2018_1122_14152900SILO-720x404_n4srta.jpg')"><i class="fas fa-cart-plus"></i> Beli</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'ome001','Omeprazole 20mg',35000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535603/2018_1122_14152900SILO-720x404_n4srta.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -662,7 +668,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('cet001','Cetirizine 10mg',28000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535603/B0B5CADCD3BB14925C8650AF8CC89CA16FB2C2D029582252C3D67173BFAC5F99_713x460_msw6dm.jpg')"><i class="fas fa-cart-plus"></i> Beli</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'cet001','Cetirizine 10mg',28000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535603/B0B5CADCD3BB14925C8650AF8CC89CA16FB2C2D029582252C3D67173BFAC5F99_713x460_msw6dm.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -681,7 +687,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('ibu001','Ibuprofen 400mg',22000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535608/img_20230906_172912189_xn7ygh.jpg')"><i class="fas fa-cart-plus"></i> Beli</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'ibu001','Ibuprofen 400mg',22000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535608/img_20230906_172912189_xn7ygh.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -700,7 +706,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('mzo001','Minyak Zaitun Extra Virgin',45000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778899338/1778898381_uovhf8.png')"><i class="fas fa-cart-plus"></i> Beli</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'mzo001','Minyak Zaitun Extra Virgin',45000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778899338/1778898381_uovhf8.png')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -719,7 +725,7 @@
                                     </div>
                                     <div class="action-btns">
                                         <button class="btn-cart" onclick="addToCart('ksa001','Kasa Steril & Perban',18000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535607/1382757_720_yf2or2.jpg')"><i class="fas fa-cart-plus"></i> Beli</button>
-                                        <button class="btn-wishlist" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this,'ksa001','Kasa Steril & Perban',18000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535607/1382757_720_yf2or2.jpg')"><i class="far fa-heart"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -831,7 +837,7 @@
             AOS.init({ once: true, duration: 800 });
             const loader = document.getElementById('loader-wrapper');
             setTimeout(() => { loader.style.opacity='0'; setTimeout(() => { loader.style.display='none'; }, 50); }, 50);
-            updateCartUI();
+            updateCartUI();updateWishlistBadge();
         });
 
         // === CART SYSTEM ===
@@ -844,8 +850,9 @@
             var h='',t=0;cart.forEach(function(it,idx){var s=it.price*it.quantity;t+=s;h+='<div class="d-flex mb-2"><img src="'+it.image+'" style="width:50px;height:50px;object-fit:cover" class="rounded me-2"><div class="flex-grow-1"><small class="fw-bold">'+it.name+'</small><br><span class="text-muted small">Qty:'+it.quantity+'</span></div><div class="fw-bold">'+fmt(s)+'</div><button class="btn btn-sm btn-outline-danger ms-2" onclick="removeItem('+idx+')"><i class="fas fa-trash"></i></button></div>'});
             el.innerHTML=h;tot.innerText=fmt(t);var c=cart.reduce(function(s,i){return s+i.quantity},0);cnt.textContent=c;cnt.style.display=c?'block':'none'}
         function removeItem(i){cart.splice(i,1);localStorage.setItem('cart',JSON.stringify(cart));updateCartUI()}
-        function addToCart(id,nm,pr,img){var ex=cart.find(function(x){return x.id===id});if(ex)ex.quantity++;else cart.push({id:id,name:nm,price:pr,image:img,quantity:1});localStorage.setItem('cart',JSON.stringify(cart));updateCartUI();showToast(nm+' ditambahkan!')}
-        function toggleWishlist(btn){btn.classList.toggle('active');var i=btn.querySelector('i');if(btn.classList.contains('active')){i.classList.replace('far','fas');i.style.color='#dc3545';showToast('Ditambahkan ke favorit!')}else{i.classList.replace('fas','far');i.style.color='';showToast('Dihapus dari favorit')}}
+        function addToCart(id,nm,pr,img){var ex=cart.find(function(x){return x.id===id});if(ex)ex.quantity++;else cart.push({id:id,name:nm,price:pr,image:img,quantity:1});localStorage.setItem('cart',JSON.stringify(cart));updateCartUI();updateWishlistBadge();showToast(nm+' ditambahkan!')}
+        function toggleWishlist(btn,id,nm,pr,img){var wishlist=JSON.parse(localStorage.getItem('wishlist')||'[]');var i=btn.querySelector('i');var idx=wishlist.findIndex(function(x){return x.id===id});if(idx===-1){wishlist.push({id:id,name:nm,price:pr,image:img});localStorage.setItem('wishlist',JSON.stringify(wishlist));btn.classList.add('active');i.classList.replace('far','fas');i.style.color='#dc3545';updateWishlistBadge();showToast(nm+' ditambahkan ke favorit!');setTimeout(function(){window.location.href='favorit.html'},800)}else{wishlist.splice(idx,1);localStorage.setItem('wishlist',JSON.stringify(wishlist));btn.classList.remove('active');i.classList.replace('fas','far');i.style.color='';updateWishlistBadge();showToast(nm+' dihapus dari favorit')}}
+function updateWishlistBadge(){var wl=JSON.parse(localStorage.getItem('wishlist')||'[]');var badge=document.getElementById('wishlist-count');if(badge){badge.textContent=wl.length;badge.style.display=wl.length?'block':'none'}}
         function showToast(m){var t=document.createElement('div');t.className='position-fixed bottom-0 end-0 p-2';t.style.zIndex='9999';t.innerHTML='<div class="toast show bg-success text-white small"><div class="toast-body"><i class="fas fa-check me-1"></i>'+m+'</div></div>';document.body.appendChild(t);setTimeout(function(){t.remove()},2500)}
 
         // === PRODUCT FILTERING ===
