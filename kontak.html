@@ -41,6 +41,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -91,9 +93,10 @@
         .btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(13,110,253,.4);color:#fff}
         .btn-submit:disabled{opacity:.7;cursor:not-allowed;transform:none}
         
-        /* Map Placeholder */
-        .map-container{background:linear-gradient(135deg,#e9ecef,#dee2e6);border-radius:16px;height:250px;display:flex;align-items:center;justify-content:center;color:#6c757d;font-size:.9rem;cursor:pointer;transition:all .2s}
-        .map-container:hover{box-shadow:0 8px 25px rgba(0,0,0,.1)}
+        /* Map Container */
+        .map-container{border-radius:16px;height:280px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);}
+        .map-container:hover{box-shadow:0 8px 25px rgba(0,0,0,.15)}
+        #leaflet-map{width:100%;height:100%;border-radius:16px}
         
         /* Footer */
         footer{background:#fff;border-top:1px solid #dee2e6;padding:2rem 0 1rem;margin-top:2rem}
@@ -231,12 +234,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
 
                     <!-- Map Placeholder -->
-                    <div class="map-container" onclick="window.open('https://maps.google.com/?q=Jl.+Jenderal+Achmad+Yani+No.+45,+Subang','_blank')">
-                        <div class="text-center">
-                            <i class="fas fa-map-marked-alt fa-2x mb-2"></i>
-                            <p class="mb-0">Peta Lokasi Apotek</p>
-                            <small class="text-muted">Klik untuk buka Google Maps</small>
-                        </div>
+                    <div class="map-container">
+                        <div id="leaflet-map"></div>
+                    </div>
+                    <div class="text-center mt-2">
+                        <a href="https://maps.google.com/?q=Jl.+Jenderal+Achmad+Yani+No.+45,+Subang" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill mt-1"><i class="fas fa-external-link-alt me-1"></i> Buka di Google Maps</a>
                     </div>
                 </div>
 
@@ -384,6 +386,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Init Leaflet Map - Warceh Subang Pharmacy Location
+        (function(){
+            var lat = -6.5744, lng = 107.7586;
+            var map = L.map('leaflet-map', {
+                center: [lat, lng],
+                zoom: 16,
+                scrollWheelZoom: false,
+                zoomControl: true
+            });
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                maxZoom: 19
+            }).addTo(map);
+            var icon = L.divIcon({
+                html: '<div style="background:#0d6efd;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 4px 12px rgba(13,110,253,.5);border:3px solid #fff"></div>',
+                className: '',
+                iconSize: [36, 36],
+                iconAnchor: [18, 36]
+            });
+            L.marker([lat, lng], {icon: icon})
+              .addTo(map)
+              .bindPopup('<b>Warceh Subang Pharmacy</b><br>Jl. Jenderal Achmad Yani No. 45<br>Subang, Jawa Barat 41211<br><a href="https://maps.google.com/?q=Jl.+Jenderal+Achmad+Yani+No.+45,+Subang" target="_blank">Buka di Google Maps</a>')
+              .openPopup();
+        })();
+    </script>
+    
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
