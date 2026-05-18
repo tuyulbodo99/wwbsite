@@ -805,7 +805,7 @@
                     </div>
 
                     <div class="mt-5 text-center">
-                        <button class="btn btn-outline-primary rounded-pill px-4 py-2 icon-btn" onclick="loadMore()">
+                        <button class="btn btn-outline-primary rounded-pill px-4 py-2 icon-btn" id="btnLoadMore" onclick="loadMore()">
                             <i class="fas fa-sync-alt me-2"></i> Muat Lebih Banyak
                         </button>
                     </div>
@@ -1151,17 +1151,22 @@
             });
         }
 
-        // Load More (simulated)
+        // Load More - Tampilkan produk tersembunyi
         function loadMore() {
-            const btn = event.currentTarget;
+            var btn = document.getElementById('btnLoadMore');
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Memuat...';
-            
-            setTimeout(() => {
-                alert('Semua produk telah dimuat!');
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-sync-alt me-2"></i> Muat Lebih Banyak';
-            }, 1500);
+            setTimeout(function() {
+                var extras = document.querySelectorAll('.extra-product');
+                var count = extras.length;
+                extras.forEach(function(el) {
+                    el.style.display = 'block';
+                    el.classList.remove('extra-product');
+                    el.classList.add('fade-in-up');
+                });
+                document.getElementById('loadMoreWrapper').style.display = 'none';
+                toast(count + ' produk berhasil dimuat! Semua produk alat kesehatan telah ditampilkan.');
+            }, 1000);
         }
 
         // Payment System
