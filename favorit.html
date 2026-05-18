@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RH946BTJ2"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-7RH946BTJ2');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Produk favorit Anda di Warceh Subang Pharmacy">
+    <title>Favorit Saya | Warceh Subang Pharmacy</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--primary-blue:#0d6efd;--accent-yellow:#ffc107;--light-gray:#f8f9fa;--dark-gray:#343a40;--white:#fff;--navy-blue:#1e3a5f;--gold:#d4af37;--soft-blue:#e3f2fd;--dana-blue:#118eea;--saweria-purple:#7b3fe4}
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+        html{scroll-behavior:smooth}
+        body{font-family:'Poppins',sans-serif;background:var(--light-gray);color:var(--dark-gray);line-height:1.6}
+        #loader-wrapper{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:9999;display:flex;justify-content:center;align-items:center;transition:opacity .05s ease-out}
+        .spinner-custom{width:2rem;height:2rem;color:var(--primary-blue);animation:spin 1s linear infinite}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .navbar{box-shadow:0 2px 10px rgba(0,0,0,.05);background:#fff;position:sticky;top:0;z-index:1000;padding:.75rem 0}
+        .navbar-brand{font-weight:700;color:var(--navy-blue)!important;font-size:1.4rem;display:flex;align-items:center;gap:.5rem}
+        .navbar-brand .gold-text{color:var(--gold)}
+        .nav-link{font-weight:500;color:var(--dark-gray);transition:color .2s;padding:.5rem .75rem;font-size:.95rem}
+        .nav-link:hover,.nav-link.active{color:var(--primary-blue)}
+        .promo-banner{background:linear-gradient(135deg,var(--navy-blue),var(--primary-blue));color:#fff;padding:.5rem 0;font-size:.9rem;text-align:center}
+        .hero-section{background:linear-gradient(135deg,#fff0f3,#fff);padding:2.5rem 0 1.5rem;text-align:center}
+        .hero-title{font-size:1.8rem;font-weight:700;color:var(--navy-blue);margin-bottom:.5rem}
+        .hero-badge{background:linear-gradient(135deg,#dc3545,#c82333);color:#fff;padding:.4rem 1.2rem;border-radius:50px;font-weight:600;display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1rem}
+        .product-card{background:#fff;border:none;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.08);overflow:hidden;height:100%;position:relative;transition:transform .2s,box-shadow .2s}
+        .product-card:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(0,0,0,.12)}
+        .product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#dc3545,var(--accent-yellow));opacity:0;transition:opacity .3s}
+        .product-card:hover::before{opacity:1}
+        .card-img-wrapper{overflow:hidden;height:180px;background:linear-gradient(135deg,#f8f9fa,#e9ecef)}
+        .card-img-top{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+        .product-card:hover .card-img-top{transform:scale(1.05)}
+        .card-body{padding:1rem}
+        .card-title{font-weight:600;font-size:1rem;color:var(--navy-blue)}
+        .price-tag{color:var(--primary-blue);font-weight:700;font-size:1.1rem}
+        .action-btns{display:flex;gap:8px;margin-top:1rem}
+        .btn-cart{background:var(--primary-blue);color:#fff;border:none;padding:.4rem 1rem;border-radius:10px;font-weight:600;font-size:.85rem;flex:1;display:flex;align-items:center;justify-content:center;gap:.3rem;transition:all .2s}
+        .btn-cart:hover{background:#0b5ed7;transform:translateY(-2px)}
+        .btn-remove{width:40px;height:40px;border:2px solid #dc3545;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#dc3545;transition:all .2s;cursor:pointer}
+        .btn-remove:hover{background:#dc3545;color:#fff}
+        .empty-state{text-align:center;padding:4rem 1rem}
+        .empty-state i{font-size:5rem;color:#dee2e6;margin-bottom:1.5rem}
+        .empty-state h4{color:var(--navy-blue);font-weight:600}
+        .empty-state p{color:#6c757d}
+        footer{background:#fff;border-top:1px solid #dee2e6;padding:2rem 0 1rem;margin-top:3rem}
+        .footer-link{color:var(--dark-gray);text-decoration:none;display:block;margin-bottom:.5rem;font-size:.9rem;transition:color .2s}
+        .footer-link:hover{color:var(--primary-blue)}
+        .payment-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.5rem 1rem;border-radius:.5rem;font-weight:600;font-size:.85rem;transition:all .2s;min-width:120px;border:none;cursor:pointer}
+        .payment-btn.dana{background:linear-gradient(135deg,var(--dana-blue),#0d7dd9);color:#fff}
+        .payment-btn.saweria{background:linear-gradient(135deg,var(--saweria-purple),#6a35c9);color:#fff}
+        .payment-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+        .wishlist-count-badge{background:#dc3545;color:#fff;border-radius:50%;width:20px;height:20px;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
+        @media(max-width:576px){.hero-title{font-size:1.5rem}.action-btns{flex-wrap:wrap}.btn-cart{min-width:100%}}
+    </style>
+</head>
+<body>
+<div id="loader-wrapper"><div class="spinner-border spinner-custom" role="status"></div></div>
+<script>setTimeout(function(){var l=document.getElementById('loader-wrapper');if(l){l.style.opacity='0';setTimeout(function(){l.style.display='none'},50)}},50);</script>
+
+<div class="promo-banner"><div class="container"><p class="mb-0"><i class="fas fa-heart me-2"></i>Produk-produk pilihan Anda tersimpan di sini!</p></div></div>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <i class="fas fa-clinic-medical gold-text me-2"></i>
+            <span class="gold-text">Warceh</span> Subang
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><i class="fas fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="produk.html"><i class="fas fa-pills"></i> Produk</a></li>
+                <li class="nav-item"><a class="nav-link" href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="kontak.html"><i class="fas fa-phone-alt"></i> Kontak</a></li>
+                <li class="nav-item"><a class="nav-link" href="artikel.html"><i class="fas fa-newspaper"></i> Artikel</a></li>
+                <li class="nav-item ms-lg-2">
+                    <a href="favorit.html" class="btn btn-danger rounded-pill position-relative">
+                        <i class="fas fa-heart"></i>
+                        <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark" style="font-size:.7rem;display:none">0</span>
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-2">
+                    <a href="keranjang.html" class="btn btn-outline-primary rounded-pill position-relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:.7rem;display:none">0</span>
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-2"><a href="https://wa.me/6283195664588" class="btn btn-success rounded-pill btn-sm px-3"><i class="fab fa-whatsapp"></i> Konsultasi</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero-section">
+    <div class="container">
+        <div class="hero-badge"><i class="fas fa-heart"></i> Produk Favorit</div>
+        <h1 class="hero-title">Daftar Favorit Saya</h1>
+        <p class="text-muted mb-3" style="max-width:500px;margin:0 auto">Produk yang Anda simpan sebagai favorit. Klik <strong>Tambah ke Keranjang</strong> untuk langsung memesan.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <button class="btn btn-outline-danger rounded-pill px-4" onclick="clearAllFavorites()"><i class="fas fa-trash me-2"></i>Hapus Semua</button>
+            <a href="produk.html" class="btn btn-primary rounded-pill px-4"><i class="fas fa-plus me-2"></i>Tambah Produk</a>
+        </div>
+    </div>
+</header>
+
+<section class="py-4">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <p class="mb-0 text-muted small"><span id="fav-count">0</span> produk favorit</p>
+            <button class="btn btn-sm btn-success rounded-pill" onclick="addAllToCart()"><i class="fas fa-cart-plus me-1"></i> Tambah Semua ke Keranjang</button>
+        </div>
+        <div class="row g-3" id="favGrid"></div>
+        <div id="emptyState" class="empty-state" style="display:none">
+            <i class="fas fa-heart-broken"></i>
+            <h4>Belum ada favorit</h4>
+            <p>Anda belum menyimpan produk apapun ke favorit.<br>Klik ikon <i class="fas fa-heart text-danger"></i> pada produk untuk menambahkan.</p>
+            <a href="produk.html" class="btn btn-primary rounded-pill px-4 mt-2"><i class="fas fa-shopping-bag me-2"></i>Jelajahi Produk</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h6 class="fw-bold text-primary mb-2"><i class="fas fa-clinic-medical me-1"></i>Warceh Subang</h6>
+                <p class="small text-muted">Apotek terpercaya di Subang dengan produk berkualitas dan pelayanan ramah.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h6 class="fw-bold mb-2">Navigasi</h6>
+                <a href="index.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Beranda</a>
+                <a href="produk.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Produk</a>
+                <a href="favorit.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Favorit</a>
+                <a href="keranjang.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Keranjang</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h6 class="fw-bold mb-2">Kontak</h6>
+                <p class="small text-muted mb-1"><i class="fas fa-map-marker-alt me-1"></i> Jl. Achmad Yani 45, Subang</p>
+                <p class="small text-muted mb-1"><i class="fas fa-phone me-1"></i> <a href="tel:+6283195664588" class="text-decoration-none text-muted">+62 831-9566-4588</a></p>
+            </div>
+        </div>
+        <div class="text-center pt-3 border-top small text-muted">&copy; 2026 Warceh Subang Pharmacy</div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    var wishlist=JSON.parse(localStorage.getItem('wishlist')||'[]');
+    var cart=JSON.parse(localStorage.getItem('cart')||'[]');
+
+    function fmt(a){var r=a.toString().split('').reverse().join(''),k=r.match(/\d{1,3}/g);return'Rp '+(k?k.join('.').split('').reverse().join(''):'0')}
+
+    function renderFavorites(){
+        var grid=document.getElementById('favGrid'),empty=document.getElementById('emptyState'),cnt=document.getElementById('fav-count');
+        var badge=document.getElementById('wishlist-count');
+        if(badge){badge.textContent=wishlist.length;badge.style.display=wishlist.length?'block':'none'}
+        cnt.textContent=wishlist.length;
+        if(!wishlist.length){grid.innerHTML='';empty.style.display='block';return}
+        empty.style.display='none';
+        var html='';
+        wishlist.forEach(function(it,idx){
+            html+='<div class="col-6 col-md-4 col-lg-3"><div class="product-card"><div class="card-img-wrapper"><img src="'+it.image+'" class="card-img-top" alt="'+it.name+'" onerror="this.src=\'https://via.placeholder.com/180x180/eef2ff/0d6efd?text=Produk\'"></div><div class="card-body"><p class="card-title mb-1">'+it.name+'</p><p class="price-tag mb-2">'+fmt(it.price)+'</p><div class="action-btns"><button class="btn-cart" onclick="addOneToCart('+idx+')"><i class="fas fa-cart-plus"></i> Keranjang</button><button class="btn-remove" onclick="removeFromFav('+idx+')" title="Hapus dari favorit"><i class="fas fa-heart-broken"></i></button></div></div></div></div>';
+        });
+        grid.innerHTML=html;
+        updateCartBadge();
+    }
+
+    function addOneToCart(idx){
+        var it=wishlist[idx];
+        var ex=cart.find(function(x){return x.id===it.id});
+        if(ex)ex.quantity++;
+        else cart.push({id:it.id,name:it.name,price:it.price,image:it.image,quantity:1});
+        localStorage.setItem('cart',JSON.stringify(cart));
+        updateCartBadge();
+        showToast(it.name+' ditambahkan ke keranjang!');
+    }
+
+    function addAllToCart(){
+        if(!wishlist.length){showToast('Favorit masih kosong!');return}
+        wishlist.forEach(function(it){
+            var ex=cart.find(function(x){return x.id===it.id});
+            if(ex)ex.quantity++;
+            else cart.push({id:it.id,name:it.name,price:it.price,image:it.image,quantity:1});
+        });
+        localStorage.setItem('cart',JSON.stringify(cart));
+        updateCartBadge();
+        showToast(wishlist.length+' produk ditambahkan ke keranjang!');
+        setTimeout(function(){window.location.href='keranjang.html'},1000);
+    }
+
+    function removeFromFav(idx){
+        var nm=wishlist[idx].name;
+        wishlist.splice(idx,1);
+        localStorage.setItem('wishlist',JSON.stringify(wishlist));
+        showToast(nm+' dihapus dari favorit');
+        renderFavorites();
+    }
+
+    function clearAllFavorites(){
+        if(!wishlist.length){showToast('Favorit sudah kosong!');return}
+        if(!confirm('Hapus semua produk favorit?'))return;
+        wishlist=[];
+        localStorage.setItem('wishlist',JSON.stringify(wishlist));
+        showToast('Semua favorit dihapus');
+        renderFavorites();
+    }
+
+    function updateCartBadge(){
+        var badge=document.getElementById('cart-count');
+        if(!badge)return;
+        var total=cart.reduce(function(s,i){return s+i.quantity},0);
+        badge.textContent=total;badge.style.display=total?'block':'none';
+    }
+
+    function showToast(m){var t=document.createElement('div');t.className='position-fixed bottom-0 end-0 p-2';t.style.zIndex='9999';t.innerHTML='<div class="toast show bg-success text-white small"><div class="toast-body"><i class="fas fa-check me-1"></i>'+m+'</div></div>';document.body.appendChild(t);setTimeout(function(){t.remove()},2500)}
+
+    document.addEventListener('DOMContentLoaded',function(){renderFavorites();updateCartBadge();});
+</script>
+<script src="protect.js"></script>
+<script src="analytics-events.js"></script>
+</body>
+</html>
