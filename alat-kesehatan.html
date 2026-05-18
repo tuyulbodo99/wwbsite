@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RH946BTJ2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7RH946BTJ2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alat Kesehatan - Warceh Subang. Berbagai alat kesehatan untuk kebutuhan medis dan perawatan di rumah.">
+    <title>Alat Kesehatan | Warceh Subang Pharmacy</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0d6efd;
+            --accent-yellow: #ffc107;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+            --white: #ffffff;
+            --success-green: #28a745;
+            --warning-orange: #fd7e14;
+            --navy-blue: #1e3a5f;
+            --gold: #d4af37;
+            --medical-teal: #20c997;
+            --soft-blue: #e3f2fd;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+
+        /* Loading Screen */
+        #loader-wrapper {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--white);
+            z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.3s ease-out;
+        }
+        .spinner-custom {
+            width: 3rem; height: 3rem;
+            color: var(--primary-blue);
+        }
+
+        /* Navbar */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background-color: var(--white);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--navy-blue) !important;
+            font-size: 1.5rem;
+        }
+        .navbar-brand .gold-text { color: var(--gold); }
+        .navbar-brand .pharmacy-text {
+            font-size: 0.9rem;
+            display: block;
+            font-weight: 400;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-gray);
+            transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-blue);
+        }
+
+        /* Promotional Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--medical-teal) 100%);
+            color: white;
+            padding: 0.75rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        .promo-banner .container { position: relative; z-index: 1; }
+
+        /* Hero Section - Unique for Health Equipment */
+        .hero-section {
+            background: linear-gradient(135deg, var(--soft-blue) 0%, #ffffff 100%);
+            padding: 70px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(32,201,151,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        .hero-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--navy-blue);
+        }
+        .hero-badge {
+            background: linear-gradient(135deg, var(--medical-teal), #17a2b8);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(32,201,151,0.3);
+        }
+
+        /* Category Filter Tabs */
+        .category-filter {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--light-gray);
+            background: var(--white);
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.2s;
+            margin: 4px;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        /* AdSense Slot */
+        .adsense-slot {
+            background-color: #e9ecef;
+            border: 1px dashed #ced4da;
+            display: flex; justify-content: center; align-items: center;
+            color: #6c757d; font-size: 0.8rem; margin: 20px 0; overflow: hidden;
+        }
+        .ad-horizontal { width: 100%; height: 90px; }
+
+        /* Product Card - Enhanced */
+        .product-card {
+            background: var(--white);
+            border: none;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            height: 100%;
+            position: relative;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--medical-teal));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        .product-card:hover::before { opacity: 1; }
+        
+        .card-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+        .card-img-top {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .product-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        .quick-view-btn {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: bottom 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .product-card:hover .quick-view-btn {
+            bottom: 15px;
+        }
+        
+        .card-body { padding: 1.25rem; }
+        .badge-category {
+            background: linear-gradient(135deg, var(--accent-yellow), #e0a800);
+            color: #000;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        .price-tag {
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #adb5bd;
+            font-size: 0.9rem;
+            margin-left: 8px;
+        }
+
+        /* Action Buttons */
+        .action-btns {
+            display: flex;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        .btn-cart {
+            flex: 1;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        .btn-cart:hover {
+            background: #0b5ed7;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13,110,253,0.3);
+        }
+        .btn-wishlist {
+            width: 44px;
+            height: 44px;
+            border: 2px solid var(--light-gray);
+            background: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            transition: all 0.2s;
+        }
+        .btn-wishlist:hover, .btn-wishlist.active {
+            border-color: #dc3545;
+            color: #dc3545;
+            background: #fff5f5;
+        }
+
+        /* Sidebar - Health Tips */
+        .health-tip-card {
+            background: linear-gradient(135deg, var(--soft-blue), #ffffff);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--medical-teal);
+        }
+        .health-tip-card i {
+            font-size: 2rem;
+            color: var(--medical-teal);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            border-top: 1px solid #dee2e6;
+            padding-top: 50px;
+        }
+        .footer-link {
+            text-decoration: none;
+            color: var(--dark-gray);
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer-link:hover { color: var(--primary-blue); }
+
+        /* Payment Buttons */
+        .payment-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+            font-weight: 600;
+            min-width: 140px;
+        }
+        .payment-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .payment-btn.dana { 
+            background: linear-gradient(135deg, #118eea, #0d7dd9); 
+            color: white; 
+        }
+        .payment-btn.saweria { 
+            background: linear-gradient(135deg, #7b3fe4, #6a35c9); 
+            color: white; 
+        }
+
+        /* Modal Styles */
+        .qris-modal .modal-content { border-radius: 1.5rem; }
+        .qris-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .hero-title { font-size: 1.8rem; }
+            .filter-btn { padding: 6px 15px; font-size: 0.85rem; }
+            .payment-methods-container { flex-direction: column; }
+            .payment-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader-wrapper">
+        <div class="spinner-border spinner-custom" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Promotional Banner -->
+    <div class="promo-banner">
+        <div class="container text-center">
+            <p class="mb-0"><i class="fas fa-truck me-2"></i> 🚚 Gratis Ongkir via JNE, SICEPAT, J&T untuk Pembelian Alat Kesehatan!</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://warcehsubang.xyz/index.html">
+                <i class="fas fa-clinic-medical gold-text me-2"></i>
+                <span class="gold-text">Warceh</span> Subang
+                <span class="pharmacy-text">pharmacy</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="https://warcehsubang.xyz/index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="https://warcehsubang.xyz/produk.html"><i class="fas fa-pills"></i> Produk</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://warcehsubang.xyz/tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://warcehsubang.xyz/kontak.html"><i class="fas fa-phone-alt"></i> Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://warcehsubang.xyz/artikel.html"><i class="fas fa-newspaper"></i> Artikel</a></li>
+                    
+                    <li class="nav-item ms-lg-2">
+                        <button class="btn btn-outline-primary rounded-pill position-relative icon-btn" 
+                                type="button" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#cartModal"
+                                aria-label="Keranjang Belanja">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" 
+                                  style="font-size:0.7rem; display:none;">0</span>
+                        </button>
+                    </li>
+                    
+                    <li class="nav-item ms-lg-2">
+                        <a href="https://wa.me/6283195664588" class="btn btn-success rounded-pill btn-sm px-3 icon-btn">
+                            <i class="fab fa-whatsapp"></i> Konsultasi
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Unique for Health Equipment -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="hero-badge" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fas fa-heartbeat"></i> Alat Kesehatan Premium
+                    </div>
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Perawatan Kesehatan di Rumah, Lebih Mudah & Aman</h1>
+                    <p class="text-muted lead mb-4" data-aos="fade-up" data-aos-delay="300">
+                        Temukan berbagai alat kesehatan berkualitas untuk monitoring kesehatan harian. 
+                        Produk terjamin, harga terjangkau, dikirim cepat ke seluruh Subang.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="400">
+                        <a href="#produk" class="btn btn-primary-custom text-white icon-btn">
+                            <i class="fas fa-shopping-bag"></i> Belanja Sekarang
+                        </a>
+                        <a href="https://wa.me/6283195664588" class="btn btn-outline-secondary rounded-pill px-4 py-2 icon-btn">
+                            <i class="fas fa-comment-medical"></i> Konsultasi Gratis
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 mt-4 mt-lg-0 text-center" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="position-relative">
+                        <img src="https://via.placeholder.com/500x400/e3f2fd/20c997?text=🏥+Alat+Kesehatan" 
+                             alt="Alat Kesehatan" 
+                             class="img-fluid rounded-4 shadow-lg floating-element">
+                        <div class="position-absolute bottom-0 start-0 bg-white rounded-pill px-3 py-2 shadow-sm" style="animation: float 3s ease-in-out infinite;">
+                            <i class="fas fa-shield-alt text-success me-2"></i>
+                            <small class="fw-bold">100% Original</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Filter -->
+    <div class="container">
+        <div class="category-filter" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+                <span class="text-muted small me-2"><i class="fas fa-filter me-1"></i> Filter:</span>
+                <button class="filter-btn active" onclick="filterProducts('all')">
+                    <i class="fas fa-th-large me-1"></i> Semua
+                </button>
+                <button class="filter-btn" onclick="filterProducts('monitoring')">
+                    <i class="fas fa-heartbeat me-1"></i> Monitoring
+                </button>
+                <button class="filter-btn" onclick="filterProducts('p3k')">
+                    <i class="fas fa-first-aid me-1"></i> P3K
+                </button>
+                <button class="filter-btn" onclick="filterProducts('perawatan')">
+                    <i class="fas fa-spa me-1"></i> Perawatan
+                </button>
+                <button class="filter-btn" onclick="filterProducts('promosi')">
+                    <i class="fas fa-tag me-1"></i> Promo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AdSense Slot -->
+    <div class="container">
+        <div class="adsense-slot ad-horizontal">
+            <span>Space Iklan Google AdSense (728x90)</span>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section id="produk" class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Products -->
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-bold mb-0" data-aos="fade-right"><i class="fas fa-box-open text-primary me-2"></i>Koleksi Alat Kesehatan</h3>
+                        <select class="form-select form-select-sm w-auto" style="max-width: 180px;">
+                            <option>Urutkan: Terbaru</option>
+                            <option>Harga: Rendah ke Tinggi</option>
+                            <option>Harga: Tinggi ke Rendah</option>
+                            <option>Terlaris</option>
+                        </select>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <!-- Product 1: Tensimeter -->
+                        <div class="col-md-6 col-lg-4 product-item" data-category="monitoring" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://i.ibb.co.com/NnWK4bN8/begini-cara-menggunakan-tensimeter-digital.jpg" 
+                                         class="card-img-top" alt="Tensimeter Digital">
+                                    <button class="quick-view-btn">
+                                        <i class="fas fa-eye"></i> Lihat Cepat
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Monitoring</span>
+                                    <h5 class="card-title fw-bold">Tensimeter Digital</h5>
+                                    <p class="card-text text-muted small">Ukur tekanan darah dengan akurat. Layar LCD besar, mudah digunakan.</p>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <span class="price-tag">Rp 285.000</span>
+                                        <span class="old-price">Rp 350.000</span>
+                                    </div>
+                                    <div class="action-btns">
+                                        <button class="btn-cart" onclick="addToCart('ak001', 'Tensimeter Digital', 285000, 'https://i.ibb.co.com/NnWK4bN8/begini-cara-menggunakan-tensimeter-digital.jpg')">
+                                            <i class="fas fa-cart-plus"></i> Tambah
+                                        </button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2: Termometer -->
+                        <div class="col-md-6 col-lg-4 product-item" data-category="monitoring" data-aos="fade-up" data-aos-delay="150">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://i.ibb.co.com/Q7cZccDk/images-1.jpg" 
+                                         class="card-img-top" alt="Termometer Digital">
+                                    <button class="quick-view-btn">
+                                        <i class="fas fa-eye"></i> Lihat Cepat
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Monitoring</span>
+                                    <h5 class="card-title fw-bold">Termometer Inframerah</h5>
+                                    <p class="card-text text-muted small">Ukur suhu tubuh tanpa sentuh. Hasil instan dalam 1 detik.</p>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <span class="price-tag">Rp 125.000</span>
+                                    </div>
+                                    <div class="action-btns">
+                                        <button class="btn-cart" onclick="addToCart('ak002', 'Termometer Digital', 125000, 'https://i.ibb.co.com/Q7cZccDk/images-1.jpg')">
+                                            <i class="fas fa-cart-plus"></i> Tambah
+                                        </button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3: Masker Medis -->
+                        <div class="col-md-6 col-lg-4 product-item" data-category="p3k" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://i.ibb.co.com/XrtwnxYB/images-2.jpg" 
+                                         class="card-img-top" alt="Masker Medis">
+                                    <span class="position-absolute top-2 end-2 badge bg-danger">Best Seller</span>
+                                    <button class="quick-view-btn">
+                                        <i class="fas fa-eye"></i> Lihat Cepat
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">P3K</span>
+                                    <h5 class="card-title fw-bold">Masker Medis 3 Ply (50pcs)</h5>
+                                    <p class="card-text text-muted small">Perlindungan optimal dari debu & droplet. Nyaman dipakai seharian.</p>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <span class="price-tag">Rp 35.000</span>
+                                    </div>
+                                    <div class="action-btns">
+                                        <button class="btn-cart" onclick="addToCart('ak003', 'Masker Medis 3 Ply', 35000, 'https://i.ibb.co.com/XrtwnxYB/images-2.jpg')">
+                                            <i class="fas fa-cart-plus"></i> Tambah
+                                        </button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4: Stetoskop -->
+                        <div class="col-md-6 col-lg-4 product-item" data-category="monitoring" data-aos="fade-up" data-aos-delay="250">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://i.ibb.co.com/yBbN5bGb/images-3.jpg" 
+                                         class="card-img-top" alt="Stetoskop">
+                                    <button class="quick-view-btn">
+                                        <i class="fas fa-eye"></i> Lihat Cepat
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Monitoring</span>
+                                    <h5 class="card-title fw-bold">Stetoskop Dewasa</h5>
+                                    <p class="card-text text-muted small">Kualitas profesional untuk pemeriksaan jantung & pernapasan.</p>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <span class="price-tag">Rp 165.000</span>
+                                    </div>
+                                    <div class="action-btns">
+                                        <button class="btn-cart" onclick="addToCart('ak004', 'Stetoskop Dewasa', 165000, 'https://i.ibb.co.com/yBbN5bGb/images-3.jpg')">
+                                            <i class="fas fa-cart-plus"></i> Tambah
+                                        </button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5: Glucometer -->
+                        <div class="col-md-6 col-lg-4 product-item" data-category="monitoring" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://i.ibb.co.com/HDwY92Y4/imagecgdhs-4.jpg" 
+                                         class="card-img-top" alt="Glucometer">
+                                    <span class="position-absolute top-2 end-2 badge bg-warning text-dark">Promo</span>
+                                    <button class="quick-view-btn">
+                                        <i class="fas fa-eye"></i> Lihat Cepat
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Monitoring</span>
+                                    <h5 class="card-title fw-bold">Alat Tes Gula Darah</h5>
+                                    <p class="card-text text-muted small">Pantau kadar gula darah dengan mudah. Termasuk 10 strip test gratis.</p>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <span class="price-tag">Rp 195.000</span>
+                                        <span class="old-price">Rp 245.000</span>
+                                    </div>
+                                    <div class="action-btns">
+                                        <button class="btn-cart" onclick="addToCart('ak005', 'Alat Tes Gula Darah', 195000, 'https://i.ibb.co.com/HDwY92Y4/imagecgdhs-4.jpg')">
+                                            <i class="fas fa-cart-plus"></i> Tambah
+                                        </button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6: Hand Sanitizer -->
+                        <div class="col-md-6 col-lg-4 product-item" data-category="perawatan" data-aos="fade-up" data-aos-delay="350">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://i.ibb.co.com/ns9M0v3r/imagiyhjes-4.jpg" 
+                                         class="card-img-top" alt="Hand Sanitizer">
+                                    <button class="quick-view-btn">
+                                        <i class="fas fa-eye"></i> Lihat Cepat
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Perawatan</span>
+                                    <h5 class="card-title fw-bold">Hand Sanitizer 500ml</h5>
+                                    <p class="card-text text-muted small">Alkohol 70%, efektif bunuh kuman. Wangi segar, tidak lengket.</p>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <span class="price-tag">Rp 42.000</span>
+                                    </div>
+                                    <div class="action-btns">
+                                        <button class="btn-cart" onclick="addToCart('ak006', 'Hand Sanitizer 500ml', 42000, 'https://i.ibb.co.com/ns9M0v3r/imagiyhjes-4.jpg')">
+                                            <i class="fas fa-cart-plus"></i> Tambah
+                                        </button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 7: Perban -->
+                        <div class="col-md-6 col-lg-4 product-item" data-category="p3k" data-aos="fade-up" data-aos-delay="400">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://i.ibb.co.com/zTKFTYVm/imagejhfdts-4.jpg" 
+                                         class="card-img-top" alt="Perban">
+                                    <button class="quick-view-btn">
+                                        <i class="fas fa-eye"></i> Lihat Cepat
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">P3K</span>
+                                    <h5 class="card-title fw-bold">Perban Elastis 5cm</h5>
+                                    <p class="card-text text-muted small">Elastis & nyaman untuk balut luka atau keseleo. Ukuran 5cm x 4m.</p>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <span class="price-tag">Rp 18.000</span>
+                                    </div>
+                                    <div class="action-btns">
+                                        <button class="btn-cart" onclick="addToCart('ak007', 'Perban Elastis', 18000, 'https://i.ibb.co.com/zTKFTYVm/imagejhfdts-4.jpg')">
+                                            <i class="fas fa-cart-plus"></i> Tambah
+                                        </button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 8: Kapas Medis -->
+                        <div class="col-md-6 col-lg-4 product-item" data-category="p3k" data-aos="fade-up" data-aos-delay="450">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://i.ibb.co.com/qF7fDQBT/imagvbies-4.jpg" 
+                                         class="card-img-top" alt="Kapas Medis">
+                                    <button class="quick-view-btn">
+                                        <i class="fas fa-eye"></i> Lihat Cepat
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">P3K</span>
+                                    <h5 class="card-title fw-bold">Kapas Medis Steril 100gr</h5>
+                                    <p class="card-text text-muted small">100% cotton, steril, untuk kebersihan luka & keperluan medis.</p>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <span class="price-tag">Rp 15.000</span>
+                                    </div>
+                                    <div class="action-btns">
+                                        <button class="btn-cart" onclick="addToCart('ak008', 'Kapas Medis 100gr', 15000, 'https://i.ibb.co.com/qF7fDQBT/imagvbies-4.jpg')">
+                                            <i class="fas fa-cart-plus"></i> Tambah
+                                        </button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 9: Nebulizer -->
+                        <div class="col-md-6 col-lg-4 product-item" data-category="perawatan" data-aos="fade-up" data-aos-delay="500">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://i.ibb.co.com/CprJnhSh/imageseezyyv-4.jpg" 
+                                         class="card-img-top" alt="Nebulizer">
+                                    <span class="position-absolute top-2 end-2 badge bg-success">New</span>
+                                    <button class="quick-view-btn">
+                                        <i class="fas fa-eye"></i> Lihat Cepat
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Perawatan</span>
+                                    <h5 class="card-title fw-bold">Nebulizer Portable</h5>
+                                    <p class="card-text text-muted small">Terapi uap untuk asma & gangguan napas. Ringan, baterai rechargeable.</p>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <span class="price-tag">Rp 385.000</span>
+                                    </div>
+                                    <div class="action-btns">
+                                        <button class="btn-cart" onclick="addToCart('ak009', 'Nebulizer Portable', 385000, 'https://i.ibb.co.com/CprJnhSh/imageseezyyv-4.jpg')">
+                                            <i class="fas fa-cart-plus"></i> Tambah
+                                        </button>
+                                        <button class="btn-wishlist" onclick="toggleWishlist(this)">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-outline-primary rounded-pill px-4 py-2 icon-btn" onclick="loadMore()">
+                            <i class="fas fa-sync-alt me-2"></i> Muat Lebih Banyak
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sidebar - Health Tips & Info -->
+                <div class="col-lg-3 mt-5 mt-lg-0">
+                    <!-- Health Tip Card -->
+                    <div class="health-tip-card" data-aos="fade-left" data-aos-delay="100">
+                        <i class="fas fa-lightbulb"></i>
+                        <h6 class="fw-bold mb-2">Tips Kesehatan</h6>
+                        <p class="small mb-0">Cek tekanan darah rutin di rumah membantu deteksi dini hipertensi. Gunakan tensimeter digital untuk hasil akurat.</p>
+                    </div>
+
+                    <!-- AdSense Sidebar -->
+                    <div class="adsense-slot ad-sidebar" data-aos="fade-left" data-aos-delay="200">
+                        <span>Space Iklan Google AdSense (300x250)</span>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="card border-0 shadow-sm" data-aos="fade-left" data-aos-delay="300">
+                        <div class="card-header bg-white fw-bold py-3">
+                            <i class="fas fa-link me-2 text-primary"></i>Kategori Terkait
+                        </div>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-muted"><i class="fas fa-chevron-right me-2 text-primary"></i>Vitamin & Suplemen</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-muted"><i class="fas fa-chevron-right me-2 text-primary"></i>Obat Bebas</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-muted"><i class="fas fa-chevron-right me-2 text-primary"></i>Ibu & Anak</a></li>
+                            <li class="list-group-item"><a href="#" class="text-decoration-none text-muted"><i class="fas fa-chevron-right me-2 text-primary"></i>Perawatan Kulit</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="mt-4 text-center" data-aos="fade-left" data-aos-delay="400">
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center justify-content-center gap-2 text-muted small">
+                                <i class="fas fa-shield-alt text-success"></i>
+                                <span>Produk 100% Original</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center gap-2 text-muted small">
+                                <i class="fas fa-truck text-primary"></i>
+                                <span>Gratis Ongkir Subang</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center gap-2 text-muted small">
+                                <i class="fas fa-headset text-warning"></i>
+                                <span>Konsultasi Gratis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold text-primary mb-3"><i class="fas fa-clinic-medical me-2"></i>Warceh Subang</h5>
+                    <p class="text-muted small">Apotek terpercaya yang melayani kebutuhan kesehatan masyarakat Subang dengan produk berkualitas dan pelayanan ramah.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-secondary icon-btn"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-secondary icon-btn"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-secondary icon-btn"><i class="fab fa-whatsapp fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 mb-4">
+                    <h6 class="fw-bold mb-3"><i class="fas fa-sitemap me-2"></i>Navigasi</h6>
+                    <a href="https://warcehsubang.xyz/index.html" class="footer-link small"><i class="fas fa-chevron-right me-1"></i> Beranda</a>
+                    <a href="https://warcehsubang.xyz/tentang.html" class="footer-link small"><i class="fas fa-chevron-right me-1"></i> Tentang Kami</a>
+                    <a href="https://warcehsubang.xyz/produk.html" class="footer-link small"><i class="fas fa-chevron-right me-1"></i> Produk</a>
+                    <a href="https://warcehsubang.xyz/kontak.html" class="footer-link small"><i class="fas fa-chevron-right me-1"></i> Kontak</a>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3"><i class="fas fa-headset me-2"></i>Hubungi Kami</h6>
+                    <p class="small text-muted mb-1"><i class="fas fa-map-marker-alt me-2"></i> Jl. Jend. Achmad Yani No. 45, Subang</p>
+                    <p class="small text-muted mb-1"><i class="fas fa-phone me-2"></i> +62 83195664588</p>
+                    <p class="small text-muted"><i class="fas fa-envelope me-2"></i> info@warcehsubang.warcehsubang.xyz</p>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3"><i class="fas fa-credit-card me-2"></i>Pembayaran</h6>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button class="payment-btn dana icon-btn" onclick="payWith('dana')">
+                            <i class="fas fa-wallet"></i> DANA
+                        </button>
+                        <button class="payment-btn saweria icon-btn" onclick="payWith('saweria')">
+                            <i class="fas fa-heart"></i> Saweria
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-light py-3 text-center border-top">
+            <p class="small text-muted mb-0">&copy; 2026 Warceh Subang Pharmacy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="cartModalLabel">
+                <i class="fas fa-shopping-cart me-2"></i>Keranjang Belanja
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="cart-items">
+            <p class="text-center text-muted">Memuat keranjang...</p>
+          </div>
+          <div class="modal-footer justify-content-between flex-column">
+            <div class="fw-bold mb-2">Total: <span id="cart-total">Rp 0</span></div>
+            <div class="payment-methods-container d-flex flex-wrap gap-2 justify-content-center w-100">
+                <button type="button" class="payment-btn dana icon-btn" onclick="payWith('dana')">
+                    <i class="fas fa-wallet"></i> Bayar via DANA
+                </button>
+                <button type="button" class="payment-btn saweria icon-btn" onclick="payWith('saweria')">
+                    <i class="fas fa-heart"></i> Donasi via Saweria
+                </button>
+            </div>
+            <div class="mt-2 w-100 d-flex justify-content-between">
+                <button type="button" class="btn btn-danger icon-btn" onclick="clearCart()">
+                    <i class="fas fa-trash-alt"></i> Kosongkan
+                </button>
+                <button type="button" class="btn btn-secondary icon-btn" data-bs-dismiss="modal">
+                    <i class="fas fa-times"></i> Tutup
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal fade qris-modal" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+          <div class="modal-header border-bottom-0">
+            <h5 class="modal-title mx-auto" id="paymentModalLabel">
+                <i class="fas fa-credit-card text-primary me-2"></i>Konfirmasi Pembayaran
+            </h5>
+          </div>
+          <div class="modal-body">
+              <p class="text-muted small mb-2">Total yang harus dibayar:</p>
+              <h2 class="fw-bold text-primary mb-3" id="payment-amount-display">Rp 0</h2>
+              
+              <div id="dana-info" class="payment-method-info dana-info d-none">
+                  <p class="mb-1"><i class="fas fa-wallet text-primary me-2"></i><strong>Pembayaran via DANA</strong></p>
+                  <p class="mb-0 small">Nomor DANA: <strong>0838-2189-6240</strong><br>
+                  <span class="text-danger"><i class="fas fa-exclamation-triangle me-1"></i>Harap transfer nominal yang SAMA PERSIS.</span></p>
+              </div>
+              
+              <div id="saweria-info" class="payment-method-info saweria-info d-none">
+                  <p class="mb-1"><i class="fas fa-heart text-primary me-2"></i><strong>Pembayaran via Saweria</strong></p>
+                  <p class="mb-0 small">Link: <strong>saweria.co/WarcehSubang</strong><br>
+                  <span class="text-danger"><i class="fas fa-exclamation-triangle me-1"></i>Harap donasi dengan nominal yang SAMA PERSIS.</span></p>
+              </div>
+
+              <div class="mb-3 mt-3">
+                  <label class="form-label fw-bold">Masukkan Jumlah Pembayaran:</label>
+                  <input type="number" class="form-control amount-input" id="payment-input" placeholder="Contoh: 50000">
+                  <div id="amount-message" class="mt-2 small"></div>
+              </div>
+
+              <div class="upload-area" onclick="document.getElementById('proof-upload').click()">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <p class="mb-0 fw-bold">Upload Bukti Transfer</p>
+                  <small class="text-muted">Klik untuk upload (JPG, PNG, PDF - Max 5MB)</small>
+                  <input type="file" id="proof-upload" accept="image/*,.pdf" style="display: none;" onchange="handleFileUpload(event)">
+              </div>
+              
+              <div id="file-info" class="mt-3 d-none">
+                  <div class="alert alert-success py-2 mb-0">
+                      <i class="fas fa-check-circle me-2"></i>
+                      <span id="file-name"></span>
+                  </div>
+              </div>
+
+              <div class="progress-container" id="progress-container">
+                  <div class="progress">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" id="progress-bar" style="width: 0%"></div>
+                  </div>
+                  <small class="text-muted" id="progress-text">Memvalidasi pembayaran...</small>
+              </div>
+
+              <p class="text-muted small mb-0 mt-3"><i class="fas fa-truck me-1"></i> Gratis ongkir via JNE, SICEPAT, J&T</p>
+          </div>
+          <div class="modal-footer border-top-0 justify-content-center">
+            <button type="button" class="btn btn-secondary icon-btn" data-bs-dismiss="modal">
+                <i class="fas fa-times"></i> Batal
+            </button>
+            <button type="button" class="btn btn-primary icon-btn" id="btn-confirm-payment" onclick="validateAndProcessPayment()" disabled>
+                <i class="fas fa-check"></i> Konfirmasi & Bayar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({ once: true, duration: 800 });
+
+            // Loading Screen
+            const loader = document.getElementById('loader-wrapper');
+            setTimeout(() => {
+                loader.style.transition = 'opacity 0.15s ease-out';
+                loader.style.opacity = '0';
+                setTimeout(() => { loader.style.display = 'none'; }, 150);
+            }, 500);
+        });
+
+        // Cart System
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function calculateTotal() {
+            return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        }
+
+        function formatRupiah(angka) {
+            const reverse = angka.toString().split('').reverse().join('');
+            const ribuan = reverse.match(/\d{1,3}/g);
+            const hasil = ribuan.join('.').split('').reverse().join('');
+            return `Rp ${hasil}`;
+        }
+
+        function updateCartUI() {
+            const cartItemsEl = document.getElementById('cart-items');
+            const cartTotalEl = document.getElementById('cart-total');
+            const cartCountEl = document.getElementById('cart-count');
+
+            if (cart.length === 0) {
+                cartItemsEl.innerHTML = '<p class="text-center text-muted">Keranjang belanja kosong.</p>';
+                cartTotalEl.innerText = 'Rp 0';
+                cartCountEl.style.display = 'none';
+                return;
+            }
+
+            let itemsHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                itemsHTML += `
+                    <div class="d-flex mb-3 align-items-center">
+                        <img src="${item.image}" alt="${item.name}" class="rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0">${item.name}</h6>
+                            <small class="text-muted">Qty: ${item.quantity}</small>
+                            <div class="fw-bold">${formatRupiah(itemTotal)}</div>
+                        </div>
+                        <button class="btn btn-sm btn-outline-danger" onclick="removeItem(${index})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            cartItemsEl.innerHTML = itemsHTML;
+            cartTotalEl.innerText = formatRupiah(total);
+
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountEl.textContent = count;
+            cartCountEl.style.display = count > 0 ? 'block' : 'none';
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function clearCart() {
+            if (cart.length === 0) { alert('Keranjang sudah kosong!'); return; }
+            if (confirm('Apakah Anda yakin ingin mengosongkan keranjang belanja?')) {
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartUI();
+                alert('Keranjang berhasil dikosongkan!');
+            }
+        }
+
+        function addToCart(id, name, price, image) {
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) existingItem.quantity += 1;
+            else cart.push({ id, name, price, image, quantity: 1 });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+            
+            // Show toast notification
+            const toast = document.createElement('div');
+            toast.className = 'position-fixed bottom-0 end-0 p-3';
+            toast.style.zIndex = '9999';
+            toast.innerHTML = `
+                <div class="toast show bg-success text-white" role="alert">
+                    <div class="toast-body">
+                        <i class="fas fa-check-circle me-2"></i>${name} ditambahkan ke keranjang!
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function toggleWishlist(btn) {
+            btn.classList.toggle('active');
+            const icon = btn.querySelector('i');
+            if (btn.classList.contains('active')) {
+                icon.classList.replace('far', 'fas');
+                icon.style.color = '#dc3545';
+            } else {
+                icon.classList.replace('fas', 'far');
+                icon.style.color = '';
+            }
+        }
+
+        // Filter Products
+        function filterProducts(category) {
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            // Filter items
+            const items = document.querySelectorAll('.product-item');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                    item.classList.add('fade-in-up');
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Load More (simulated)
+        function loadMore() {
+            const btn = event.currentTarget;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Memuat...';
+            
+            setTimeout(() => {
+                alert('Semua produk telah dimuat!');
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-sync-alt me-2"></i> Muat Lebih Banyak';
+            }, 1500);
+        }
+
+        // Payment System
+        let uploadedFile = null;
+        let currentPaymentMethod = '';
+
+        function payWith(method) {
+            if (cart.length === 0) { alert("Keranjang belanja kosong."); return; }
+
+            currentPaymentMethod = method;
+            const total = calculateTotal();
+            
+            bootstrap.Modal.getInstance(document.getElementById('cartModal'))?.hide();
+
+            // Reset modal
+            document.getElementById('payment-input').value = '';
+            document.getElementById('payment-input').classList.remove('error', 'success');
+            document.getElementById('amount-message').innerHTML = '';
+            document.getElementById('file-info').classList.add('d-none');
+            document.getElementById('progress-container').style.display = 'none';
+            document.getElementById('btn-confirm-payment').disabled = true;
+            uploadedFile = null;
+            
+            document.getElementById('payment-amount-display').innerText = formatRupiah(total);
+            document.getElementById('dana-info').classList.toggle('d-none', method !== 'dana');
+            document.getElementById('saweria-info').classList.toggle('d-none', method !== 'saweria');
+            
+            new bootstrap.Modal(document.getElementById('paymentModal')).show();
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
+                if (!validTypes.includes(file.type)) { alert('Format file tidak valid. Gunakan JPG, PNG, atau PDF.'); return; }
+                if (file.size > 5 * 1024 * 1024) { alert('Ukuran file terlalu besar. Maksimal 5MB.'); return; }
+                uploadedFile = file;
+                document.getElementById('file-name').innerText = file.name;
+                document.getElementById('file-info').classList.remove('d-none');
+                validateAmount();
+            }
+        }
+
+        function validateAmount() {
+            const input = document.getElementById('payment-input');
+            const message = document.getElementById('amount-message');
+            const btnConfirm = document.getElementById('btn-confirm-payment');
+            const expectedAmount = calculateTotal();
+            const enteredAmount = parseInt(input.value) || 0;
+
+            if (enteredAmount === 0) {
+                input.classList.remove('error', 'success');
+                message.innerHTML = '';
+                btnConfirm.disabled = true;
+                return false;
+            }
+
+            if (enteredAmount !== expectedAmount) {
+                input.classList.add('error');
+                input.classList.remove('success');
+                message.innerHTML = `<span class="text-danger"><i class="fas fa-times-circle me-1"></i><strong>DITOLAK!</strong> Jumlah tidak sesuai. Harap masukkan: ${formatRupiah(expectedAmount)}</span>`;
+                btnConfirm.disabled = true;
+                return false;
+            } else {
+                input.classList.remove('error');
+                input.classList.add('success');
+                message.innerHTML = `<span class="text-success"><i class="fas fa-check-circle me-1"></i>Jumlah pembayaran sesuai! ✓</span>`;
+                if (uploadedFile) btnConfirm.disabled = false;
+                return true;
+            }
+        }
+
+        document.getElementById('payment-input')?.addEventListener('input', validateAmount);
+
+        function validateAndProcessPayment() {
+            if (!validateAmount()) { alert('⚠️ Pembayaran DITOLAK! Jumlah tidak sesuai.'); return; }
+            if (!uploadedFile) { alert('Harap upload bukti transfer terlebih dahulu!'); return; }
+
+            const progressContainer = document.getElementById('progress-container');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            
+            progressContainer.style.display = 'block';
+            document.getElementById('btn-confirm-payment').disabled = true;
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+                if (progress === 30) progressText.innerText = 'Mengupload bukti...';
+                else if (progress === 60) progressText.innerText = 'Memvalidasi pembayaran...';
+                else if (progress === 90) progressText.innerText = 'Memproses pesanan...';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        if (currentPaymentMethod === 'dana') {
+                            const total = calculateTotal();
+                            const message = `Halo Warceh Subang,%0A%0APembayaran via DANA:%0A- Total: ${formatRupiah(total)}%0A- Bukti transfer sudah diupload%0A%0AMohon konfirmasi pesanan.`;
+                            window.location.href = `https://wa.me/6283195664588?text=${message}`;
+                        } else if (currentPaymentMethod === 'saweria') {
+                            window.open('https://saweria.co/WarcehSubang', '_blank');
+                        }
+                        localStorage.removeItem('cart');
+                        setTimeout(() => { window.location.href = 'success.html'; }, 1000);
+                    }, 500);
+                }
+            }, 250);
+        }
+
+        // Initial load
+        updateCartUI();
+    </script>
+    <script src="analytics-events.js"></script>
+</body>
+</html>
