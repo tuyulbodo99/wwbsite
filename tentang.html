@@ -16,6 +16,19 @@
     <meta charset="UTF-8">
     <meta name="google-adsense-account" content="ca-pub-4381314193189497">
 
+        <!-- PWA Manifest & Favicon -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png">
+    <meta name="theme-color" content="#1e3a5f">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Warceh">
+    <meta name="msapplication-TileImage" content="/icon-144.png">
+    <meta name="msapplication-TileColor" content="#1e3a5f">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tentang Warceh Subang - Apotek & Toko Obat Terpercaya di Subang. Sejarah, visi, misi, dan tim profesional kami.">
     <title>Tentang Kami | Warceh Subang Pharmacy</title>
@@ -112,6 +125,20 @@
         .no-js .js-only{display:none}
         .no-js .no-js-only{display:block}
     </style>
+
+    <link rel="canonical" href="https://warcehsubang.xyz/tentang.html">
+    <meta name="keywords" content="tentang warceh subang pharmacy, profil apotek subang, apotek terpercaya subang">
+    <meta property="og:title" content="Tentang Kami | Warceh Subang Pharmacy">
+    <meta property="og:description" content="Mengenal Warceh Subang Pharmacy — apotek terpercaya di Subang yang telah melayani kebutuhan kesehatan masyarakat dengan sepenuh hati.">
+    <meta property="og:image" content="https://res.cloudinary.com/dihriqgow/image/upload/v1778899338/1778898381_uovhf8.png">
+    <meta property="og:url" content="https://warcehsubang.xyz/tentang.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Warceh Subang Pharmacy">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tentang Kami | Warceh Subang Pharmacy">
+    <meta name="twitter:description" content="Mengenal Warceh Subang Pharmacy — apotek terpercaya di Subang yang telah melayani kebutuhan kesehatan masyarakat dengan sepenuh hati.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dihriqgow/image/upload/v1778899338/1778898381_uovhf8.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Pharmacy","LocalBusiness"],"name":"Warceh Subang Pharmacy","description":"Apotek & Toko Obat Terpercaya di Subang","url":"https://warcehsubang.xyz","telephone":"+62-xxx-xxxx-xxxx","image":"https://res.cloudinary.com/dihriqgow/image/upload/v1778899338/1778898381_uovhf8.png","address":{"@type":"PostalAddress","addressLocality":"Subang","addressRegion":"Jawa Barat","addressCountry":"ID"},"geo":{"@type":"GeoCoordinates","latitude":-6.5783,"longitude":107.7597},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"21:00"}],"priceRange":"Rp","currenciesAccepted":"IDR","paymentAccepted":"Cash, Transfer Bank, QRIS"}</script>
 </head>
 <body class="no-js">
     <!-- Google Tag Manager (noscript) -->
@@ -428,5 +455,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </noscript>
     <script src="protect.js"></script>
     <script src="analytics-events.js"></script>
+<script>
+if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(function(){});}
+</script>
 </body>
 </html>
