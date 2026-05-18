@@ -696,7 +696,124 @@
 
                     <!-- Load More Button -->
                     <div class="mt-4 text-center">
-                        <button class="btn btn-outline-primary rounded-pill px-4 py-2 icon-btn" onclick="loadMoreProducts()">
+
+                        <!-- Produk Extra Tersembunyi -->
+                        <div class="col-md-6 col-lg-4 product-item extra-product" data-kategori="obat" data-harga="28000" data-name="Cetirizine" style="display:none">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://res.cloudinary.com/dihriqgow/image/upload/v1778535603/B0B5CADCD3BB14925C8650AF8CC89CA16FB2C2D029582252C3D67173BFAC5F99_713x460_msw6dm.jpg" class="card-img-top" alt="Cetirizine" loading="lazy">
+                                    <span class="position-absolute top-2 end-2 badge bg-info text-white">New</span>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Obat Alergi</span>
+                                    <h5 class="card-title">Cetirizine 10mg</h5>
+                                    <p class="card-text text-muted small">Antihistamin ampuh untuk alergi, pilek, dan gatal-gatal kulit.</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <span class="price-tag">Rp 28.000</span>
+                                    </div>
+                                    <div class="d-flex gap-2 mt-3">
+                                        <button class="btn btn-sm btn-outline-primary" onclick="addToCart('cet001','Cetirizine 10mg',28000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535603/B0B5CADCD3BB14925C8650AF8CC89CA16FB2C2D029582252C3D67173BFAC5F99_713x460_msw6dm.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 product-item extra-product" data-kategori="obat" data-harga="22000" data-name="Ibuprofen" style="display:none">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://res.cloudinary.com/dihriqgow/image/upload/v1778535608/img_20230906_172912189_xn7ygh.jpg" class="card-img-top" alt="Ibuprofen" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Obat Bebas</span>
+                                    <h5 class="card-title">Ibuprofen 400mg</h5>
+                                    <p class="card-text text-muted small">Pereda nyeri dan demam untuk sakit kepala dan nyeri sendi.</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <span class="price-tag">Rp 22.000</span>
+                                    </div>
+                                    <div class="d-flex gap-2 mt-3">
+                                        <button class="btn btn-sm btn-outline-primary" onclick="addToCart('ibu001','Ibuprofen 400mg',22000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535608/img_20230906_172912189_xn7ygh.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 product-item extra-product" data-kategori="obat" data-harga="35000" data-name="Omeprazole" style="display:none">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://res.cloudinary.com/dihriqgow/image/upload/v1778535603/2018_1122_14152900SILO-720x404_n4srta.jpg" class="card-img-top" alt="Omeprazole" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Obat Maag</span>
+                                    <h5 class="card-title">Omeprazole 20mg</h5>
+                                    <p class="card-text text-muted small">Mengurangi produksi asam lambung berlebih dan maag kronis.</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <span class="price-tag">Rp 35.000</span>
+                                    </div>
+                                    <div class="d-flex gap-2 mt-3">
+                                        <button class="btn btn-sm btn-outline-primary" onclick="addToCart('ome001','Omeprazole 20mg',35000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535603/2018_1122_14152900SILO-720x404_n4srta.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 product-item extra-product" data-kategori="vitamin" data-harga="65000" data-name="Vitamin D3" style="display:none">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://res.cloudinary.com/dihriqgow/image/upload/v1778535607/1382757_720_yf2or2.jpg" class="card-img-top" alt="Vitamin D3" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Vitamin</span>
+                                    <h5 class="card-title">Vitamin D3 1000IU</h5>
+                                    <p class="card-text text-muted small">Suplemen vitamin D untuk tulang kuat dan imunitas optimal.</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <span class="price-tag">Rp 65.000</span>
+                                    </div>
+                                    <div class="d-flex gap-2 mt-3">
+                                        <button class="btn btn-sm btn-outline-primary" onclick="addToCart('vd3001','Vitamin D3 1000IU',65000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535607/1382757_720_yf2or2.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 product-item extra-product" data-kategori="herbal" data-harga="45000" data-name="Minyak Zaitun" style="display:none">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://res.cloudinary.com/dihriqgow/image/upload/v1778899338/1778898381_uovhf8.png" class="card-img-top" alt="Minyak Zaitun" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Herbal</span>
+                                    <h5 class="card-title">Minyak Zaitun Extra Virgin</h5>
+                                    <p class="card-text text-muted small">Minyak zaitun murni untuk kesehatan jantung dan kulit sehat.</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <span class="price-tag">Rp 45.000</span>
+                                    </div>
+                                    <div class="d-flex gap-2 mt-3">
+                                        <button class="btn btn-sm btn-outline-primary" onclick="addToCart('mzo001','Minyak Zaitun Extra Virgin',45000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778899338/1778898381_uovhf8.png')"><i class="fas fa-cart-plus"></i> Tambah</button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 product-item extra-product" data-kategori="alat-kesehatan" data-harga="18000" data-name="Kasa Steril" style="display:none">
+                            <div class="card product-card h-100">
+                                <div class="card-img-wrapper">
+                                    <img src="https://res.cloudinary.com/dihriqgow/image/upload/v1778535607/1382757_720_yf2or2.jpg" class="card-img-top" alt="Kasa Steril" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge badge-category mb-2">Alat Kesehatan</span>
+                                    <h5 class="card-title">Kasa Steril & Perban</h5>
+                                    <p class="card-text text-muted small">Kasa medis steril untuk perawatan luka ringan hingga sedang.</p>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <span class="price-tag">Rp 18.000</span>
+                                    </div>
+                                    <div class="d-flex gap-2 mt-3">
+                                        <button class="btn btn-sm btn-outline-primary" onclick="addToCart('ksa001','Kasa Steril & Perban',18000,'https://res.cloudinary.com/dihriqgow/image/upload/v1778535607/1382757_720_yf2or2.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary rounded-pill px-4 py-2 icon-btn" id="btnLoadMore" onclick="loadMoreProducts()">
                             <i class="fas fa-sync-alt me-2"></i> Muat Lebih Banyak Produk
                         </button>
                     </div>
@@ -848,17 +965,20 @@
 
         // === LOAD MORE PRODUCTS ===
         function loadMoreProducts(){
-            var btn=event.target;btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin me-2"></i>Memuat...';
+            var btn=document.getElementById('btnLoadMore');
+            btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin me-2"></i>Memuat...';
             setTimeout(function(){
-                var grid=document.getElementById('productGrid'),newItems='';
-                for(var i=0;i<6;i++){
-                    var p=Math.floor(Math.random()*100000)+10000,n=['Vitamin E','Obat Tidur','Minyak Kayu Putih','Salep Gatal','Obat Flu Anak','Masker KF94'][i%6],c=['Vitamin','Obat Bebas','Perawatan','Herbal','Ibu & Anak','Alat Kesehatan'][i%6];
-                    newItems+=`<div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay:${Math.random()*0.3}s;"><div class="card product-card h-100"><div class="card-img-wrapper"><img src="https://via.placeholder.com/300x200/eef2ff/0d6efd?text=Produk+Baru" class="card-img-top" alt="${n}" loading="lazy"><span class="position-absolute top-2 end-2 badge bg-info">New</span></div><div class="card-body"><span class="badge badge-category mb-2">${c}</span><h5 class="card-title">${n}</h5><p class="card-text text-muted small">Deskripsi produk baru untuk kesehatan Anda.</p><div class="d-flex justify-content-between align-items-center mt-3"><span class="price-tag">Rp ${p}</span></div><div class="d-flex gap-2 mt-3"><button class="btn btn-sm btn-outline-primary" onclick="addToCart('p${Math.floor(Math.random()*1000)}','${n}',${p},'https://via.placeholder.com/300x200/eef2ff/0d6efd?text=${n}')"><i class="fas fa-cart-plus"></i> Tambah</button><button class="btn btn-sm btn-outline-danger" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button></div></div></div></div>`;
-                }
-                grid.insertAdjacentHTML('beforeend',newItems);
-                btn.disabled=false;btn.innerHTML='<i class="fas fa-sync-alt me-2"></i> Muat Lebih Banyak Produk';
-                showToast('✅ '+6+' produk baru dimuat!');
-            },1500);
+                var extras=document.querySelectorAll('.extra-product');
+                var count=extras.length;
+                extras.forEach(function(el){
+                    el.style.display='block';
+                    el.classList.remove('extra-product');
+                    el.classList.add('fade-in-up');
+                });
+                btn.closest('.mt-4') && (btn.closest('.mt-4').style.display='none');
+                btn.style.display='none';
+                showToast('✅ '+count+' produk berhasil dimuat! Semua produk telah ditampilkan.');
+            },1000);
         }
 
         // === PAYMENT SYSTEM ===
