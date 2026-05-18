@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RH946BTJ2"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-7RH946BTJ2');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Keranjang belanja Anda di Warceh Subang Pharmacy">
+    <title>Keranjang Belanja | Warceh Subang Pharmacy</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--primary-blue:#0d6efd;--accent-yellow:#ffc107;--light-gray:#f8f9fa;--dark-gray:#343a40;--white:#fff;--navy-blue:#1e3a5f;--gold:#d4af37;--dana-blue:#118eea;--saweria-purple:#7b3fe4}
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+        html{scroll-behavior:smooth}
+        body{font-family:'Poppins',sans-serif;background:var(--light-gray);color:var(--dark-gray);line-height:1.6}
+        #loader-wrapper{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:9999;display:flex;justify-content:center;align-items:center;transition:opacity .05s ease-out}
+        .spinner-custom{width:2rem;height:2rem;color:var(--primary-blue);animation:spin 1s linear infinite}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .navbar{box-shadow:0 2px 10px rgba(0,0,0,.05);background:#fff;position:sticky;top:0;z-index:1000;padding:.75rem 0}
+        .navbar-brand{font-weight:700;color:var(--navy-blue)!important;font-size:1.4rem;display:flex;align-items:center;gap:.5rem}
+        .navbar-brand .gold-text{color:var(--gold)}
+        .nav-link{font-weight:500;color:var(--dark-gray);transition:color .2s;padding:.5rem .75rem;font-size:.95rem}
+        .nav-link:hover,.nav-link.active{color:var(--primary-blue)}
+        .promo-banner{background:linear-gradient(135deg,var(--navy-blue),var(--primary-blue));color:#fff;padding:.5rem 0;font-size:.9rem;text-align:center}
+        .hero-section{background:linear-gradient(135deg,var(--light-gray),#fff);padding:2.5rem 0 1.5rem;text-align:center}
+        .hero-title{font-size:1.8rem;font-weight:700;color:var(--navy-blue);margin-bottom:.5rem}
+        .hero-badge{background:linear-gradient(135deg,var(--primary-blue),#0b5ed7);color:#fff;padding:.4rem 1.2rem;border-radius:50px;font-weight:600;display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1rem}
+        .cart-item-card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.06);padding:1rem;margin-bottom:1rem;transition:box-shadow .2s}
+        .cart-item-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.1)}
+        .cart-item-img{width:80px;height:80px;object-fit:cover;border-radius:10px;flex-shrink:0}
+        .qty-btn{width:32px;height:32px;border-radius:8px;border:2px solid #dee2e6;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;font-weight:700;font-size:1rem;color:var(--dark-gray)}
+        .qty-btn:hover{border-color:var(--primary-blue);color:var(--primary-blue)}
+        .qty-display{min-width:40px;text-align:center;font-weight:600;font-size:1rem}
+        .summary-card{background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.08);padding:1.5rem;position:sticky;top:80px}
+        .summary-card h5{font-weight:700;color:var(--navy-blue);margin-bottom:1rem}
+        .summary-row{display:flex;justify-content:space-between;margin-bottom:.5rem;font-size:.95rem}
+        .summary-total{font-size:1.2rem;font-weight:700;color:var(--primary-blue);border-top:2px solid #e9ecef;padding-top:.75rem;margin-top:.75rem}
+        .payment-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1rem;border-radius:12px;font-weight:600;font-size:.95rem;transition:all .2s;width:100%;margin-bottom:.75rem;border:none;cursor:pointer}
+        .payment-btn.dana{background:linear-gradient(135deg,var(--dana-blue),#0d7dd9);color:#fff}
+        .payment-btn.saweria{background:linear-gradient(135deg,var(--saweria-purple),#6a35c9);color:#fff}
+        .payment-btn.whatsapp{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff}
+        .payment-btn:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,.2)}
+        .empty-state{text-align:center;padding:4rem 1rem}
+        .empty-state i{font-size:5rem;color:#dee2e6;margin-bottom:1.5rem}
+        .empty-state h4{color:var(--navy-blue);font-weight:600}
+        .progress-step{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+        .step{display:flex;align-items:center;gap:.4rem;font-size:.85rem;color:#6c757d}
+        .step.active{color:var(--primary-blue);font-weight:600}
+        .step .step-icon{width:28px;height:28px;border-radius:50%;background:#dee2e6;display:flex;align-items:center;justify-content:center;font-size:.75rem}
+        .step.active .step-icon{background:var(--primary-blue);color:#fff}
+        .step.done .step-icon{background:#28a745;color:#fff}
+        .step.done{color:#28a745}
+        .modal-content{border-radius:1rem;border:none}
+        .amount-input{font-size:1.1rem;font-weight:600;text-align:center;border:2px solid #e9ecef;border-radius:10px;padding:.75rem 1rem;width:100%}
+        .amount-input:focus{border-color:var(--primary-blue);box-shadow:0 0 0 .2rem rgba(13,110,253,.15);outline:none}
+        .upload-area{border:2px dashed #ced4da;border-radius:12px;padding:1.25rem;text-align:center;cursor:pointer;transition:all .2s;background:#f8f9fa}
+        .upload-area:hover{border-color:var(--primary-blue);background:#e7f3ff}
+        .upload-area i{font-size:2rem;color:var(--primary-blue);margin-bottom:.5rem}
+        footer{background:#fff;border-top:1px solid #dee2e6;padding:2rem 0 1rem;margin-top:3rem}
+        .footer-link{color:var(--dark-gray);text-decoration:none;display:block;margin-bottom:.5rem;font-size:.9rem;transition:color .2s}
+        .footer-link:hover{color:var(--primary-blue)}
+        @media(max-width:576px){.cart-item-img{width:60px;height:60px}.hero-title{font-size:1.4rem}.summary-card{position:static}}
+    </style>
+</head>
+<body>
+<div id="loader-wrapper"><div class="spinner-border spinner-custom" role="status"></div></div>
+<script>setTimeout(function(){var l=document.getElementById('loader-wrapper');if(l){l.style.opacity='0';setTimeout(function(){l.style.display='none'},50)}},50);</script>
+
+<div class="promo-banner"><div class="container"><p class="mb-0"><i class="fas fa-truck me-2"></i>Gratis ongkir ke seluruh Subang! Pesan sekarang via WhatsApp.</p></div></div>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <i class="fas fa-clinic-medical gold-text me-2"></i>
+            <span class="gold-text">Warceh</span> Subang
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><i class="fas fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="produk.html"><i class="fas fa-pills"></i> Produk</a></li>
+                <li class="nav-item"><a class="nav-link" href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="kontak.html"><i class="fas fa-phone-alt"></i> Kontak</a></li>
+                <li class="nav-item"><a class="nav-link" href="artikel.html"><i class="fas fa-newspaper"></i> Artikel</a></li>
+                <li class="nav-item ms-lg-2">
+                    <a href="favorit.html" class="btn btn-outline-danger rounded-pill position-relative">
+                        <i class="fas fa-heart"></i>
+                        <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:.7rem;display:none">0</span>
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-2">
+                    <a href="keranjang.html" class="btn btn-primary rounded-pill position-relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:.7rem;display:none">0</span>
+                    </a>
+                </li>
+                <li class="nav-item ms-lg-2"><a href="https://wa.me/6283195664588" class="btn btn-success rounded-pill btn-sm px-3"><i class="fab fa-whatsapp"></i> Konsultasi</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero-section">
+    <div class="container">
+        <div class="hero-badge"><i class="fas fa-shopping-cart"></i> Keranjang Belanja</div>
+        <h1 class="hero-title">Keranjang Saya</h1>
+        <div class="progress-step">
+            <div class="step active" id="step1"><span class="step-icon">1</span> Keranjang</div>
+            <i class="fas fa-chevron-right text-muted"></i>
+            <div class="step" id="step2"><span class="step-icon">2</span> Pembayaran</div>
+            <i class="fas fa-chevron-right text-muted"></i>
+            <div class="step" id="step3"><span class="step-icon">3</span> Konfirmasi</div>
+        </div>
+    </div>
+</header>
+
+<section class="py-4">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Cart Items -->
+            <div class="col-lg-8">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="fw-bold mb-0"><span id="item-count">0</span> Item di Keranjang</h6>
+                    <button class="btn btn-sm btn-outline-danger rounded-pill" onclick="clearCart()"><i class="fas fa-trash me-1"></i>Kosongkan</button>
+                </div>
+                <div id="cart-list"></div>
+                <div id="emptyState" style="display:none">
+                    <div class="empty-state">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Keranjang Kosong</h4>
+                        <p>Anda belum menambahkan produk ke keranjang.</p>
+                        <a href="produk.html" class="btn btn-primary rounded-pill px-4 mt-2"><i class="fas fa-shopping-bag me-2"></i>Belanja Sekarang</a>
+                    </div>
+                </div>
+                <a href="produk.html" class="btn btn-outline-primary rounded-pill px-4 mt-2" id="btn-lanjut-belanja">
+                    <i class="fas fa-arrow-left me-2"></i>Lanjut Belanja
+                </a>
+            </div>
+            <!-- Summary -->
+            <div class="col-lg-4">
+                <div class="summary-card">
+                    <h5><i class="fas fa-receipt me-2 text-primary"></i>Ringkasan Pesanan</h5>
+                    <div class="summary-row"><span class="text-muted">Subtotal</span><span id="subtotal-val">Rp 0</span></div>
+                    <div class="summary-row"><span class="text-muted">Ongkir</span><span class="text-success fw-bold">GRATIS</span></div>
+                    <div class="summary-row summary-total"><span>Total</span><span id="total-val">Rp 0</span></div>
+                    <div class="mt-3">
+                        <button class="payment-btn whatsapp" onclick="checkoutWA()"><i class="fab fa-whatsapp fa-lg"></i> Pesan via WhatsApp</button>
+                        <button class="payment-btn dana" onclick="payWith('dana')"><i class="fas fa-wallet fa-lg"></i> Bayar via DANA</button>
+                        <button class="payment-btn saweria" onclick="payWith('saweria')"><i class="fas fa-heart fa-lg"></i> Bayar via Saweria</button>
+                    </div>
+                    <p class="small text-muted text-center mt-2"><i class="fas fa-shield-alt me-1"></i>Transaksi aman & terpercaya</p>
+                    <hr>
+                    <div class="text-center">
+                        <a href="favorit.html" class="text-danger small"><i class="fas fa-heart me-1"></i>Lihat Favorit Saya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h6 class="fw-bold text-primary mb-2"><i class="fas fa-clinic-medical me-1"></i>Warceh Subang</h6>
+                <p class="small text-muted">Apotek terpercaya di Subang dengan produk berkualitas dan pelayanan ramah.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h6 class="fw-bold mb-2">Navigasi</h6>
+                <a href="index.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Beranda</a>
+                <a href="produk.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Produk</a>
+                <a href="favorit.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Favorit</a>
+                <a href="keranjang.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Keranjang</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h6 class="fw-bold mb-2">Kontak</h6>
+                <p class="small text-muted mb-1"><i class="fas fa-map-marker-alt me-1"></i> Jl. Achmad Yani 45, Subang</p>
+                <p class="small text-muted mb-1"><i class="fas fa-phone me-1"></i> <a href="tel:+6283195664588" class="text-decoration-none text-muted">+62 831-9566-4588</a></p>
+            </div>
+        </div>
+        <div class="text-center pt-3 border-top small text-muted">&copy; 2026 Warceh Subang Pharmacy</div>
+    </div>
+</footer>
+
+<!-- Payment Modal -->
+<div class="modal fade" id="payModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <div class="modal-header border-0">
+                <h6 class="modal-title mx-auto"><i class="fas fa-credit-card text-primary me-1"></i>Konfirmasi Pembayaran</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body px-4">
+                <div id="step2-indicator" class="mb-3">
+                    <div class="progress-step">
+                        <div class="step done"><span class="step-icon"><i class="fas fa-check" style="font-size:.6rem"></i></span> Keranjang</div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                        <div class="step active"><span class="step-icon">2</span> Pembayaran</div>
+                        <i class="fas fa-chevron-right text-muted"></i>
+                        <div class="step"><span class="step-icon">3</span> Konfirmasi</div>
+                    </div>
+                </div>
+                <p class="small text-muted mb-1">Total Pembayaran:</p>
+                <h4 class="fw-bold text-primary mb-3" id="pay-amount">Rp 0</h4>
+                <div id="pay-info" class="alert alert-info small py-2 mb-3 text-start"></div>
+                <input type="number" class="amount-input mb-2" id="pay-input" placeholder="Masukkan nominal transfer" inputmode="numeric">
+                <p id="pay-msg" class="small mb-3"></p>
+                <div class="upload-area" onclick="document.getElementById('proof').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p class="mb-1 fw-bold small">Upload Bukti Transfer</p>
+                    <small class="text-muted">JPG, PNG, PDF - Max 5MB</small>
+                    <input type="file" id="proof" accept="image/*,.pdf" style="display:none" onchange="fileUp(this)">
+                </div>
+                <div id="file-ok" class="alert alert-success small py-1 mt-2 d-none"><i class="fas fa-check"></i> <span id="fname"></span></div>
+                <div class="progress mt-2 d-none" id="prog"><div class="progress-bar progress-bar-striped progress-bar-animated" id="pb" style="width:0%"></div></div>
+                <p class="small text-muted mt-2"><i class="fas fa-truck me-1"></i>Gratis ongkir JNE/SICEPAT/J&T</p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button class="btn btn-primary px-4" id="btn-pay" onclick="processPay()" disabled>Konfirmasi Pesanan</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    var cart=JSON.parse(localStorage.getItem('cart')||'[]');
+    var upl=null,payM='';
+
+    function fmt(a){var r=a.toString().split('').reverse().join(''),k=r.match(/\d{1,3}/g);return'Rp '+(k?k.join('.').split('').reverse().join(''):'0')}
+    function calc(){return cart.reduce(function(t,i){return t+i.price*i.quantity},0)}
+
+    function renderCart(){
+        var list=document.getElementById('cart-list'),empty=document.getElementById('emptyState');
+        var cnt=document.getElementById('item-count'),sub=document.getElementById('subtotal-val'),tot=document.getElementById('total-val');
+        var badge=document.getElementById('cart-count'),lanjut=document.getElementById('btn-lanjut-belanja');
+        var totalItems=cart.reduce(function(s,i){return s+i.quantity},0);
+        if(badge){badge.textContent=totalItems;badge.style.display=totalItems?'block':'none'}
+        if(!cart.length){list.innerHTML='';empty.style.display='block';if(lanjut)lanjut.style.display='none';cnt.textContent='0';sub.textContent='Rp 0';tot.textContent='Rp 0';return}
+        empty.style.display='none';if(lanjut)lanjut.style.display='inline-flex';
+        var total=calc();cnt.textContent=totalItems;sub.textContent=fmt(total);tot.textContent=fmt(total);
+        var html='';
+        cart.forEach(function(it,idx){
+            html+='<div class="cart-item-card"><div class="d-flex align-items-center gap-3"><img src="'+it.image+'" class="cart-item-img" alt="'+it.name+'" onerror="this.src=\'https://via.placeholder.com/80x80/eef2ff/0d6efd?text=Produk\'"><div class="flex-grow-1"><h6 class="fw-bold mb-1 small">'+it.name+'</h6><p class="text-muted small mb-2">Harga satuan: '+fmt(it.price)+'</p><div class="d-flex align-items-center gap-2"><button class="qty-btn" onclick="changeQty('+idx+',-1)"><i class="fas fa-minus" style="font-size:.7rem"></i></button><span class="qty-display">'+it.quantity+'</span><button class="qty-btn" onclick="changeQty('+idx+',1)"><i class="fas fa-plus" style="font-size:.7rem"></i></button></div></div><div class="text-end"><p class="fw-bold text-primary mb-2">'+fmt(it.price*it.quantity)+'</p><button class="btn btn-sm btn-outline-danger rounded-pill" onclick="removeItem('+idx+')"><i class="fas fa-trash"></i></button></div></div></div>';
+        });
+        list.innerHTML=html;
+    }
+
+    function changeQty(idx,delta){
+        cart[idx].quantity+=delta;
+        if(cart[idx].quantity<1){cart.splice(idx,1)}
+        localStorage.setItem('cart',JSON.stringify(cart));
+        renderCart();
+    }
+
+    function removeItem(idx){
+        var nm=cart[idx].name;cart.splice(idx,1);
+        localStorage.setItem('cart',JSON.stringify(cart));
+        showToast(nm+' dihapus dari keranjang');renderCart();
+    }
+
+    function clearCart(){
+        if(!cart.length){showToast('Keranjang sudah kosong!');return}
+        if(!confirm('Kosongkan seluruh keranjang?'))return;
+        cart=[];localStorage.setItem('cart',JSON.stringify(cart));
+        showToast('Keranjang dikosongkan');renderCart();
+    }
+
+    function checkoutWA(){
+        if(!cart.length)return alert('Keranjang kosong!');
+        var msg='Halo Warceh Subang, saya ingin memesan:%0A%0A';
+        var total=0;
+        cart.forEach(function(it,i){var s=it.price*it.quantity;total+=s;msg+=(i+1)+'. '+it.name+' ('+it.quantity+'x) - Rp '+total+'%0A'});
+        msg+='%0A*Total: Rp '+calc()+'*%0A%0AMohon info ongkir & pembayaran. Terima kasih!';
+        window.open('https://wa.me/6283195664588?text='+msg,'_blank');
+    }
+
+    function payWith(m){
+        if(!cart.length)return alert('Keranjang kosong!');
+        payM=m;var t=calc();
+        document.getElementById('pay-amount').innerText=fmt(t);
+        document.getElementById('pay-info').innerHTML=m==='dana'?'<i class="fas fa-wallet"></i> Transfer ke DANA: <b>0838-2189-6240</b><br><span class="text-danger fw-bold">Harap transfer nominal SAMA PERSIS</span>':'<i class="fas fa-heart"></i> Donasi ke Saweria: <b>saweria.co/WarcehSubang</b><br><span class="text-danger fw-bold">Donasi nominal SAMA PERSIS</span>';
+        document.getElementById('pay-input').value='';document.getElementById('pay-msg').innerHTML='';document.getElementById('file-ok').classList.add('d-none');document.getElementById('prog').classList.add('d-none');document.getElementById('btn-pay').disabled=true;upl=null;
+        new bootstrap.Modal(document.getElementById('payModal')).show();
+    }
+
+    function fileUp(e){
+        var f=e.files[0];if(!f)return;
+        if(!/image\/(jpeg|png|jpg)|application\/pdf/.test(f.type))return alert('Format tidak valid. Gunakan JPG, PNG, atau PDF');
+        if(f.size>5242880)return alert('File terlalu besar. Maksimal 5MB');
+        upl=f;document.getElementById('fname').innerText=f.name;document.getElementById('file-ok').classList.remove('d-none');validateAmount();
+    }
+
+    function validateAmount(){
+        var inp=document.getElementById('pay-input'),msg=document.getElementById('pay-msg'),btn=document.getElementById('btn-pay');
+        var exp=calc(),ent=parseInt(inp.value)||0;
+        if(!ent){inp.className='amount-input';msg.innerHTML='';btn.disabled=true;return false}
+        if(ent!==exp){inp.className='amount-input is-invalid';msg.innerHTML='<span class="text-danger"><i class="fas fa-times-circle me-1"></i>DITOLAK! Nominal harus persis: '+fmt(exp)+'</span>';btn.disabled=true;return false}
+        inp.className='amount-input is-valid';msg.innerHTML='<span class="text-success"><i class="fas fa-check-circle me-1"></i>Nominal sesuai!</span>';
+        if(upl)btn.disabled=false;return true;
+    }
+    document.addEventListener('DOMContentLoaded',function(){
+        var inp=document.getElementById('pay-input');
+        if(inp)inp.addEventListener('input',validateAmount);
+    });
+
+    function processPay(){
+        if(!validateAmount())return alert('Nominal tidak sesuai');
+        if(!upl)return alert('Upload bukti transfer terlebih dahulu');
+        var pc=document.getElementById('prog'),pb=document.getElementById('pb');
+        pc.classList.remove('d-none');document.getElementById('btn-pay').disabled=true;
+        var p=0,timer=setInterval(function(){
+            p+=20;pb.style.width=p+'%';
+            if(p>=100){
+                clearInterval(timer);
+                setTimeout(function(){
+                    if(payM==='dana')window.open('https://wa.me/6283821896240?text=Konfirmasi%20pembayaran%20DANA%20sebesar%20'+fmt(calc()),'_blank');
+                    else window.open('https://saweria.co/WarcehSubang','_blank');
+                    localStorage.removeItem('cart');
+                    setTimeout(function(){window.location.href='success.html'},500);
+                },300);
+            }
+        },150);
+    }
+
+    function updateWishlistBadge(){var wl=JSON.parse(localStorage.getItem('wishlist')||'[]');var badge=document.getElementById('wishlist-count');if(badge){badge.textContent=wl.length;badge.style.display=wl.length?'block':'none'}}
+    function showToast(m){var t=document.createElement('div');t.className='position-fixed bottom-0 end-0 p-2';t.style.zIndex='9999';t.innerHTML='<div class="toast show bg-success text-white small"><div class="toast-body"><i class="fas fa-check me-1"></i>'+m+'</div></div>';document.body.appendChild(t);setTimeout(function(){t.remove()},2500)}
+
+    document.addEventListener('DOMContentLoaded',function(){renderCart();updateWishlistBadge();});
+</script>
+<script src="protect.js"></script>
+<script src="analytics-events.js"></script>
+</body>
+</html>
