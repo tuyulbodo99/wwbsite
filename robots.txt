@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Disallow: /cart.js
+Disallow: /cart.json
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://warcehsubang.xyz/sitemap.xml
+Host: warcehsubang.xyz
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: AdsBot-Google
+Allow: /
+Crawl-delay: 1
+
+User-agent: Mediapartners-Google
+Allow: /
+Disallow: /kontak.html
+Disallow: /privacy-policy.html
+Disallow: /terms-of-service.html
