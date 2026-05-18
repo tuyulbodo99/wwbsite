@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-    <!-- Halaman Utama -->
+    <!-- ===== HALAMAN UTAMA ===== -->
     <url>
         <loc>https://warcehsubang.xyz/</loc>
         <lastmod>2026-05-18</lastmod>
@@ -14,22 +14,10 @@
             <image:title>Warceh Subang Pharmacy - Apotek Terpercaya di Subang</image:title>
         </image:image>
     </url>
-    <url>
-        <loc>https://warcehsubang.xyz/index.html</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
 
-    <!-- Halaman Produk -->
+    <!-- ===== HALAMAN PRODUK ===== -->
     <url>
         <loc>https://warcehsubang.xyz/produk.html</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://warcehsubang.xyz/semua-produk.html</loc>
         <lastmod>2026-05-18</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
@@ -71,7 +59,7 @@
         <priority>0.7</priority>
     </url>
 
-    <!-- Halaman Artikel / Edukasi -->
+    <!-- ===== HALAMAN ARTIKEL / EDUKASI ===== -->
     <url>
         <loc>https://warcehsubang.xyz/artikel.html</loc>
         <lastmod>2026-05-18</lastmod>
@@ -90,36 +78,6 @@
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
-
-    <!-- Halaman Informasi -->
-    <url>
-        <loc>https://warcehsubang.xyz/tentang.html</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://warcehsubang.xyz/kontak.html</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Halaman Legal -->
-    <url>
-        <loc>https://warcehsubang.xyz/privacy-policy.html</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://warcehsubang.xyz/terms-of-service.html</loc>
-        <lastmod>2026-05-18</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
-
-    <!-- Artikel Baru 2026 -->
     <url>
         <loc>https://warcehsubang.xyz/cara-minum-obat.html</loc>
         <lastmod>2026-05-12</lastmod>
@@ -143,6 +101,46 @@
         <lastmod>2026-05-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    </url>
+
+    <!-- ===== HALAMAN INFORMASI ===== -->
+    <url>
+        <loc>https://warcehsubang.xyz/tentang.html</loc>
+        <lastmod>2026-05-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://warcehsubang.xyz/kontak.html</loc>
+        <lastmod>2026-05-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://warcehsubang.xyz/favorit.html</loc>
+        <lastmod>2026-05-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://warcehsubang.xyz/keranjang.html</loc>
+        <lastmod>2026-05-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- ===== HALAMAN LEGAL ===== -->
+    <url>
+        <loc>https://warcehsubang.xyz/privacy-policy.html</loc>
+        <lastmod>2026-05-18</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://warcehsubang.xyz/terms-of-service.html</loc>
+        <lastmod>2026-05-18</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
 
 </urlset>
