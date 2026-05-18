@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RH946BTJ2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7RH946BTJ2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pertolongan Pertama Saat Anak Demam - Panduan lengkap dari apoteker Warceh Subang untuk mengatasi demam pada anak dengan aman dan efektif.">
+    <title>Pertolongan Pertama Anak Demam | Warceh Subang Pharmacy</title>
+    
+    <!-- Preconnect untuk kecepatan -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root{--primary-blue:#0d6efd;--accent-yellow:#ffc107;--light-gray:#f8f9fa;--dark-gray:#343a40;--white:#fff;--success-green:#28a745;--navy-blue:#1e3a5f;--gold:#d4af37;--soft-blue:#e3f2fd;--dana-blue:#118eea;--saweria-purple:#7b3fe4}
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+        html{scroll-behavior:smooth}
+        body{font-family:'Poppins',sans-serif;background:var(--light-gray);color:var(--dark-gray);line-height:1.6;overflow-x:hidden}
+        
+        /* Loading Screen - Ultra Fast 50ms */
+        #loader-wrapper{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--white);z-index:9999;display:flex;justify-content:center;align-items:center;transition:opacity .05s ease-out;pointer-events:none}
+        .no-js #loader-wrapper{display:flex!important;pointer-events:auto}
+        .spinner-custom{width:2rem;height:2rem;color:var(--primary-blue);animation:spin 1s linear infinite}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        
+        /* Navbar */
+        .navbar{box-shadow:0 2px 10px rgba(0,0,0,.05);background:#fff;position:sticky;top:0;z-index:1000;padding:.75rem 0}
+        .navbar-brand{font-weight:700;color:var(--navy-blue)!important;font-size:1.3rem;display:flex;align-items:center;gap:.5rem}
+        .navbar-brand .gold-text{color:var(--gold)}
+        .navbar-brand .pharmacy-text{font-size:.8rem;display:block;font-weight:400;color:#666;margin-top:-4px}
+        .nav-link{font-weight:500;color:var(--dark-gray);transition:color .2s;padding:.5rem .75rem;font-size:.95rem}
+        .nav-link:hover,.nav-link.active{color:var(--primary-blue)}
+        .navbar-toggler{border:none;padding:.4rem;margin-right:.5rem}
+        
+        /* Promo Banner */
+        .promo-banner{background:linear-gradient(135deg,var(--navy-blue),var(--primary-blue));color:#fff;padding:.5rem 0;font-size:.85rem;text-align:center}
+        
+        /* Hero Section */
+        .hero-section{background:linear-gradient(135deg,var(--soft-blue),#fff);padding:2rem 0 1.5rem;text-align:center}
+        .hero-title{font-size:1.5rem;font-weight:700;color:var(--navy-blue);margin-bottom:.8rem;line-height:1.3}
+        .hero-badge{background:linear-gradient(135deg,var(--primary-blue),#0b5ed7);color:#fff;padding:.35rem 1rem;border-radius:50px;font-weight:600;display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;font-size:.9rem}
+        
+        /* Article Content */
+        .article-container{background:#fff;border:none;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.08);padding:1.5rem;margin-bottom:1.5rem}
+        .article-header{border-bottom:1px solid #eee;padding-bottom:1rem;margin-bottom:1.5rem}
+        .article-title{font-size:1.4rem;font-weight:700;color:var(--navy-blue);margin-bottom:.5rem;line-height:1.4}
+        .article-meta{font-size:.85rem;color:#6c757d;display:flex;flex-wrap:wrap;gap:1rem}
+        .article-meta i{color:var(--primary-blue);margin-right:.3rem}
+        .article-img{width:100%;border-radius:12px;margin:1rem 0;box-shadow:0 4px 15px rgba(0,0,0,.08)}
+        .article-content p{line-height:1.7;margin-bottom:1rem;color:#555}
+        .article-content h3{font-size:1.2rem;color:var(--navy-blue);margin:1.5rem 0 .6rem;font-weight:600}
+        .article-content ul{padding-left:1.5rem;margin-bottom:1rem}
+        .article-content li{margin-bottom:.5rem;line-height:1.6;color:#666}
+        .article-content .highlight{background:rgba(13,110,253,.1);padding:.15rem .4rem;border-radius:4px;font-weight:500}
+        .article-content .alert-warning{background:#fff3cd;border-left:4px solid #ffc107;color:#856404;border-radius:10px;padding:1rem;margin:1.5rem 0}
+        .article-content .alert-info{background:var(--soft-blue);border-left:4px solid var(--primary-blue);color:var(--dark-gray);border-radius:10px;padding:1rem;margin:1.5rem 0}
+        .article-content .alert-info a{color:var(--primary-blue);font-weight:500}
+        .step-card{background:var(--light-gray);border-radius:12px;padding:1rem;margin-bottom:1rem;border-left:4px solid var(--primary-blue)}
+        .step-card .step-number{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--primary-blue);color:#fff;border-radius:50%;font-weight:600;font-size:.85rem;margin-right:.5rem}
+        
+        /* Share Buttons */
+        .share-section{border-top:1px solid #eee;padding-top:1rem;margin-top:1.5rem}
+        .share-btn{background:#fff;border:1px solid #dee2e6;border-radius:8px;padding:.4rem .8rem;font-size:.85rem;display:inline-flex;align-items:center;gap:.3rem;transition:all .2s;text-decoration:none;color:var(--dark-gray)}
+        .share-btn:hover{background:var(--soft-blue);border-color:var(--primary-blue);color:var(--primary-blue);transform:translateY(-2px)}
+        .share-btn.whatsapp{color:#25d366;border-color:#25d366}
+        .share-btn.whatsapp:hover{background:#e8f5e9}
+        .share-btn.facebook{color:#1877f2;border-color:#1877f2}
+        .share-btn.facebook:hover{background:#e7f1ff}
+        
+        /* Related Articles */
+        .related-articles{margin-top:2rem}
+        .related-card{background:var(--light-gray);border-radius:12px;padding:1rem;display:flex;gap:1rem;align-items:center;text-decoration:none;color:inherit;transition:all .2s}
+        .related-card:hover{background:#e9ecef;transform:translateX(3px)}
+        .related-img{width:60px;height:60px;border-radius:8px;object-fit:cover;flex-shrink:0}
+        .related-title{font-weight:600;font-size:.95rem;margin-bottom:.2rem;color:var(--navy-blue)}
+        .related-meta{font-size:.8rem;color:#6c757d}
+        
+        /* Back Button */
+        .back-btn{display:inline-flex;align-items:center;gap:.4rem;color:var(--primary-blue);text-decoration:none;font-weight:500;padding:.4rem .8rem;border-radius:8px;transition:all .2s}
+        .back-btn:hover{background:var(--soft-blue);color:#0b5ed7}
+        
+        /* Sidebar */
+        .sidebar-card{background:#fff;border:none;border-radius:14px;box-shadow:0 3px 12px rgba(0,0,0,.06);padding:1.25rem;margin-bottom:1rem}
+        .sidebar-card h4{font-size:1.1rem;font-weight:600;margin-bottom:.75rem;color:var(--navy-blue)}
+        .sidebar-card .small{font-size:.85rem;line-height:1.5}
+        .sidebar-card.bg-primary{background:linear-gradient(135deg,var(--primary-blue),var(--navy-blue))!important;color:#fff}
+        .sidebar-card.bg-primary h4{color:#fff}
+        
+        /* Footer */
+        footer{background:#fff;border-top:1px solid #dee2e6;padding:1.5rem 0 1rem;margin-top:1.5rem}
+        .footer-link{color:var(--dark-gray);text-decoration:none;display:block;margin-bottom:.4rem;font-size:.9rem;transition:color .2s}
+        .footer-link:hover{color:var(--primary-blue)}
+        .footer-social a{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#6c757d;transition:all .2s;font-size:1.1rem}
+        .footer-social a:hover{background:var(--soft-blue);color:var(--primary-blue)}
+        
+        /* Payment Buttons */
+        .payment-btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.5rem 1rem;border-radius:.5rem;font-weight:600;font-size:.85rem;transition:all .2s;min-width:130px;min-height:44px}
+        .payment-btn.dana{background:linear-gradient(135deg,var(--dana-blue),#0d7dd9);color:#fff}
+        .payment-btn.saweria{background:linear-gradient(135deg,var(--saweria-purple),#6a35c9);color:#fff}
+        .payment-btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.15)}
+        
+        /* Modal */
+        .modal-content{border-radius:1rem;border:none}
+        .modal-header{border-bottom:none;padding:1rem 1.25rem}
+        .modal-body{padding:1rem 1.25rem}
+        .modal-footer{border-top:none;padding:1rem 1.25rem}
+        
+        /* Form Elements */
+        .amount-input{font-size:1.1rem;font-weight:600;text-align:center;border:2px solid #e9ecef;border-radius:10px;padding:.75rem 1rem;width:100%;min-height:48px}
+        .amount-input:focus{border-color:var(--primary-blue);box-shadow:0 0 0 .2rem rgba(13,110,253,.15);outline:none}
+        .amount-input.error{border-color:#dc3545;background:#fff5f5;animation:shake .3s}
+        .amount-input.success{border-color:var(--success-green);background:#f0fff4}
+        @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+        
+        .upload-area{border:2px dashed #ced4da;border-radius:12px;padding:1.25rem;text-align:center;cursor:pointer;transition:all .2s;background:#f8f9fa;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+        .upload-area:hover{border-color:var(--primary-blue);background:#e7f3ff}
+        .upload-area i{font-size:2rem;color:var(--primary-blue);margin-bottom:.5rem}
+        .upload-area p{margin:0;font-weight:500;font-size:.9rem}
+        .upload-area small{font-size:.75rem;color:#6c757d}
+        
+        /* Utilities */
+        .icon-btn{display:inline-flex;align-items:center;gap:.3rem}
+        .text-primary{color:var(--primary-blue)!important}
+        .fw-bold{font-weight:600!important}
+        .small{font-size:.85rem!important}
+        .text-muted{color:#6c757d!important}
+        
+        /* Responsive */
+        @media(min-width:768px){
+            .hero-title{font-size:1.8rem}
+            .article-title{font-size:1.6rem}
+            .navbar-brand{font-size:1.4rem}
+        }
+        @media(max-width:576px){
+            .navbar-brand{font-size:1.2rem}
+            .hero-title{font-size:1.4rem}
+            .payment-btn{width:100%}
+            .modal-dialog{margin:.5rem}
+            .article-container{padding:1.25rem}
+        }
+        
+        /* No-JS Fallback */
+        .no-js .js-only{display:none}
+        .no-js .no-js-only{display:block}
+    </style>
+</head>
+<body class="no-js">
+<script>document.body.classList.remove('no-js');</script>
+
+    <!-- Loading Screen - Ultra Fast -->
+    <div id="loader-wrapper"><div class="spinner-border spinner-custom" role="status"></div></div>
+    <script>setTimeout(function(){var l=document.getElementById('loader-wrapper');if(l){l.style.opacity='0';setTimeout(function(){l.style.display='none'},50)}},50);</script>
+
+    <!-- Promo Banner -->
+    <div class="promo-banner"><div class="container"><p class="mb-0"><i class="fas fa-baby me-2"></i>👶 Kesehatan Anak Adalah Prioritas Utama Kami!</p></div></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-clinic-medical gold-text"></i>
+                <div>
+                    <span class="gold-text">Warceh</span> Subang
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produk.html"><i class="fas fa-pills"></i> Produk</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html"><i class="fas fa-phone-alt"></i> Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="artikel.html"><i class="fas fa-newspaper"></i> Artikel</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <button class="btn btn-outline-primary rounded-pill position-relative" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:.7rem;display:none">0</span>
+                        </button>
+                    </li>
+                    <li class="nav-item ms-lg-2"><a href="https://wa.me/6283195664588" class="btn btn-success rounded-pill btn-sm px-3" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Konsultasi</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="hero-badge"><i class="fas fa-baby"></i> Ibu & Anak</div>
+            <h1 class="hero-title">Pertolongan Pertama Saat Anak Demam</h1>
+            <p class="text-muted mb-3">Panduan lengkap dari apoteker Warceh Subang untuk mengatasi demam pada anak dengan aman</p>
+            <a href="artikel.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Artikel</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Article Content -->
+                <div class="col-lg-8">
+                    <article class="article-container">
+                        <div class="article-header">
+                            <h1 class="article-title">Pertolongan Pertama Saat Anak Demam</h1>
+                            <div class="article-meta">
+                                <span><i class="far fa-calendar"></i>8 Mei 2026</span>
+                                <span><i class="far fa-user"></i>Tim Apoteker Warceh</span>
+                                <span><i class="far fa-clock"></i>6 menit baca</span>
+                            </div>
+                        </div>
+                        
+                        <img src="https://i.ibb.co.com/k2qYKNZg/imageybnids-4.jpg" class="article-img" alt="Anak Demam" loading="lazy">
+                        
+                        <div class="article-content">
+                            <p>Demam pada anak adalah respons alami tubuh terhadap infeksi atau penyakit. Meskipun seringkali membuat orang tua khawatir, demam sebenarnya adalah tanda bahwa sistem imun anak sedang bekerja melawan kuman. Berikut adalah panduan lengkap dari apoteker Warceh Subang untuk menangani demam pada anak dengan aman dan efektif.</p>
+                            
+                            <div class="alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i><strong>Penting:</strong> Artikel ini bersifat informatif. Segera bawa anak ke dokter jika demam tinggi (>39°C), berlangsung lebih dari 3 hari, atau disertai gejala mengkhawatirkan.
+                            </div>
+                            
+                            <h3>🌡️ Kenali Tanda Demam pada Anak</h3>
+                            <p>Suhu tubuh normal anak berkisar antara <span class="highlight">36,5°C - 37,5°C</span>. Demam didefinisikan sebagai:</p>
+                            <ul>
+                                <li><strong>Demam ringan:</strong> 37,5°C - 38,5°C</li>
+                                <li><strong>Demam sedang:</strong> 38,5°C - 39,5°C</li>
+                                <li><strong>Demam tinggi:</strong> > 39,5°C</li>
+                            </ul>
+                            
+                            <h3>🚨 Langkah Pertolongan Pertama</h3>
+                            
+                            <div class="step-card">
+                                <p><span class="step-number">1</span><strong>Ukur Suhu dengan Benar</strong></p>
+                                <p class="mb-0 small">Gunakan termometer digital untuk akurasi terbaik. Ukur suhu di ketiak, mulut (anak >4 tahun), atau rektal (bayi). Catat suhu dan waktu pengukuran.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <p><span class="step-number">2</span><strong>Beri Cairan Cukup</strong></p>
+                                <p class="mb-0 small">Demam meningkatkan risiko dehidrasi. Beri ASI, susu formula, atau air putih lebih sering. Hindari minuman bersoda atau berkafein.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <p><span class="step-number">3</span><strong>Kompres Hangat (Bukan Dingin!)</strong></p>
+                                <p class="mb-0 small">Gunakan kain lembut yang dibasahi air hangat (bukan dingin) untuk kompres dahi, leher, dan ketiak. Air dingin justru bisa membuat anak menggigil dan suhu naik.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <p><span class="step-number">4</span><strong>Pakaikan Pakaian Tipis</strong></p>
+                                <p class="mb-0 small">Hindari selimut tebal atau pakaian berlapis. Pakaian katun tipis membantu tubuh melepaskan panas secara alami.</p>
+                            </div>
+                            
+                            <div class="step-card">
+                                <p><span class="step-number">5</span><strong>Beri Obat Penurun Demam (Jika Perlu)</strong></p>
+                                <p class="mb-0 small">Untuk anak >3 bulan dengan demam >38,5°C atau rewel, berikan paracetamol sesuai dosis berat badan. <strong>Jangan berikan aspirin pada anak!</strong></p>
+                            </div>
+                            
+                            <h3>💊 Dosis Paracetamol untuk Anak</h3>
+                            <p>Paracetamol adalah obat penurun demam paling aman untuk anak. Dosis yang direkomendasikan:</p>
+                            <ul>
+                                <li><strong>10-15 mg/kg berat badan</strong> per dosis</li>
+                                <li><strong>Maksimal 4 kali sehari</strong> dengan jarak minimal 4-6 jam</li>
+                                <li><strong>Jangan melebihi 60 mg/kg/hari</strong></li>
+                            </ul>
+                            <p class="small text-muted"><i class="fas fa-info-circle me-1"></i>Contoh: Anak berat 10 kg → dosis 100-150 mg per kali minum.</p>
+                            
+                            <h3>⚠️ Tanda Bahaya: Segera ke Dokter!</h3>
+                            <p>Bawa anak ke fasilitas kesehatan jika mengalami:</p>
+                            <ul>
+                                <li>Demam >39,5°C atau tidak turun setelah 3 hari</li>
+                                <li>Usia <3 bulan dengan demam >38°C</li>
+                                <li>Kejang, leher kaku, atau sangat lemas</li>
+                                <li>Muntah terus-menerus atau tidak mau minum</li>
+                                <li>Ruam merah yang tidak hilang saat ditekan</li>
+                                <li>Sesak napas atau bibir membiru</li>
+                                <li>Tidak responsif atau sulit dibangunkan</li>
+                            </ul>
+                            
+                            <div class="alert-info">
+                                <i class="fas fa-clinic-medical me-2"></i><strong>Konsultasi Gratis!</strong> Bingung menangani demam anak? Chat apoteker Warceh Subang untuk panduan personal: 
+                                <a href="https://wa.me/6283195664588" target="_blank" rel="noopener">+62 831-9566-4588</a>
+                            </div>
+                            
+                            <h3>🏠 Perawatan di Rumah Setelah Demam Turun</h3>
+                            <ul>
+                                <li>Lanjutkan pemberian cairan untuk pemulihan</li>
+                                <li>Istirahat cukup, hindari aktivitas berat 1-2 hari</li>
+                                <li>Pantau suhu setiap 4-6 jam</li>
+                                <li>Beri makanan bergizi mudah dicerna (bubur, sup)</li>
+                                <li>Jaga kebersihan tangan dan lingkungan</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Share Section -->
+                        <div class="share-section">
+                            <p class="small text-muted mb-2">Bagikan artikel ini:</p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="https://wa.me/?text=Pertolongan%20Pertama%20Saat%20Anak%20Demam%20-%20Warceh%20Subang%20https://warcehsubang.xyz/anak-demam.html" class="share-btn whatsapp" target="_blank" rel="noopener">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=https://warcehsubang.xyz/anak-demam.html" class="share-btn facebook" target="_blank" rel="noopener">
+                                    <i class="fab fa-facebook"></i> Facebook
+                                </a>
+                                <button class="share-btn" onclick="copyLink()">
+                                    <i class="fas fa-link"></i> Salin Link
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Related Articles -->
+                    <div class="related-articles">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-book-open me-2 text-primary"></i>Artikel Terkait</h4>
+                        <div class="d-flex flex-column gap-3">
+                            <a href="vitamin.html" class="related-card">
+                                <img src="https://i.ibb.co.com/bgR5f8mW/vitamin-c-yang-bagus-untuk-daya-tahan-tubuh-4.jpg" class="related-img" alt="Vitamin C" loading="lazy">
+                                <div>
+                                    <div class="related-title">Manfaat Vitamin C untuk Imun</div>
+                                    <div class="related-meta"><i class="far fa-clock"></i> 5 menit baca</div>
+                                </div>
+                            </a>
+                            <a href="asam-lambung.html" class="related-card">
+                                <img src="https://i.ibb.co.com/3YsxQWB6/Mylanta.jpg" class="related-img" alt="Asam Lambung" loading="lazy">
+                                <div>
+                                    <div class="related-title">Atasi Asam Lambung Alami</div>
+                                    <div class="related-meta"><i class="far fa-clock"></i> 7 menit baca</div>
+                                </div>
+                            </a>
+                            <a href="herbal-sehat.html" class="related-card">
+                                <img src="https://i.ibb.co.com/N2SFTSJ0/tanaman-herbal.jpg" class="related-img" alt="Herbal" loading="lazy">
+                                <div>
+                                    <div class="related-title">5 Herbal Alami untuk Kesehatan</div>
+                                    <div class="related-meta"><i class="far fa-clock"></i> 6 menit baca</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Quick Consult -->
+                    <div class="sidebar-card bg-primary text-white">
+                        <i class="fas fa-comment-medical fa-3x mb-3 text-warning"></i>
+                        <h4>Konsultasi Gratis</h4>
+                        <p class="small mb-3">Anak demam dan butuh saran cepat? Chat apoteker kami sekarang!</p>
+                        <a href="https://wa.me/6283195664588?text=Halo%20Warceh%20Subang,%20anak%20saya%20demam%20dan%20saya%20butuh%20konsultasi" class="btn btn-warning fw-bold w-100" target="_blank" rel="noopener">
+                            <i class="fab fa-whatsapp"></i> Chat Sekarang
+                        </a>
+                    </div>
+                    
+                    <!-- Related Products -->
+                    <div class="sidebar-card">
+                        <h4><i class="fas fa-pills me-2 text-primary"></i>Produk Terkait</h4>
+                        <div class="d-flex flex-column gap-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://i.ibb.co.com/gF38KYpz/paracetamol.webp" style="width:50px;height:50px;object-fit:cover;border-radius:8px" alt="Paracetamol Anak" loading="lazy">
+                                <div>
+                                    <div class="fw-bold small">Paracetamol Anak</div>
+                                    <div class="text-primary small fw-bold">Rp 15.000</div>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary ms-auto" onclick="addToCart('ia010','Paracetamol Anak',15000,'https://i.ibb.co.com/gF38KYpz/paracetamol.webp')">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://i.ibb.co.com/wF1QLnqF/brd-44261-cussons-baby-minyak-telon-plus-minyak-telon-bayi-ukuran-60-ml-full01-f64f8f44.jpg" style="width:50px;height:50px;object-fit:cover;border-radius:8px" alt="Minyak Telon" loading="lazy">
+                                <div>
+                                    <div class="fw-bold small">Minyak Telon Bayi</div>
+                                    <div class="text-primary small fw-bold">Rp 32.000</div>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary ms-auto" onclick="addToCart('ia003','Minyak Telon Bayi',32000,'https://i.ibb.co.com/wF1QLnqF/brd-44261-cussons-baby-minyak-telon-plus-minyak-telon-bayi-ukuran-60-ml-full01-f64f8f44.jpg')">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="https://i.ibb.co.com/tpXrnBSx/Indomaret-Wet-Tissue-Baby-50-S-Non-Alcohol.jpg" style="width:50px;height:50px;object-fit:cover;border-radius:8px" alt="Tisu Basah" loading="lazy">
+                                <div>
+                                    <div class="fw-bold small">Tisu Basah Bayi</div>
+                                    <div class="text-primary small fw-bold">Rp 28.000</div>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary ms-auto" onclick="addToCart('ia008','Tisu Basah Bayi',28000,'https://i.ibb.co.com/tpXrnBSx/Indomaret-Wet-Tissue-Baby-50-S-Non-Alcohol.jpg')">
+                                    <i class="fas fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <a href="produk.html?kategori=ibu-anak" class="btn btn-outline-primary btn-sm w-100 mt-3">Lihat Semua Produk Ibu & Anak</a>
+                    </div>
+                    
+                    <!-- Health Tips -->
+                    <div class="sidebar-card">
+                        <h4><i class="fas fa-lightbulb me-2 text-warning"></i>Tips Cegah Demam</h4>
+                        <ul class="list-unstyled small mb-0">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Cuci tangan rutin dengan sabun</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Hindari kontak dengan orang sakit</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Pastikan imunisasi lengkap</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Beri nutrisi seimbang dan cukup tidur</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Jaga kebersihan mainan dan lingkungan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold text-primary mb-2"><i class="fas fa-clinic-medical me-1"></i>Warceh Subang</h6>
+                    <p class="small text-muted">Apotek terpercaya di Subang dengan produk berkualitas dan pelayanan ramah.</p>
+                    <div class="footer-social d-flex gap-2">
+                        <a href="#" onclick="shareSocial('facebook');return false" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" onclick="shareSocial('instagram');return false" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" onclick="shareSocial('whatsapp');return false" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h6 class="fw-bold mb-2">Navigasi</h6>
+                    <a href="index.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Beranda</a>
+                    <a href="produk.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Produk</a>
+                    <a href="kontak.html" class="footer-link"><i class="fas fa-chevron-right me-1"></i> Kontak</a>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h6 class="fw-bold mb-2">Kontak</h6>
+                    <p class="small text-muted mb-1"><i class="fas fa-map-marker-alt me-1"></i> Jl. Achmad Yani 45, Subang</p>
+                    <p class="small text-muted mb-1"><i class="fas fa-phone me-1"></i> <a href="tel:+6283195664588" class="text-decoration-none text-muted">+62 831-9566-4588</a></p>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="fw-bold mb-2">Pembayaran</h6>
+                    <button class="payment-btn dana mb-2" onclick="payWith('dana')"><i class="fas fa-wallet"></i> DANA</button>
+                    <button class="payment-btn saweria" onclick="payWith('saweria')"><i class="fas fa-heart"></i> Saweria</button>
+                </div>
+            </div>
+            <div class="text-center pt-3 border-top small text-muted">&copy; 2026 Warceh Subang Pharmacy</div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h6 class="modal-title"><i class="fas fa-shopping-cart me-1"></i>Keranjang</h6>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="cart-items"><p class="text-center text-muted small">Keranjang kosong</p></div>
+                <div class="modal-footer">
+                    <div class="fw-bold small">Total: <span id="cart-total">Rp 0</span></div>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button class="payment-btn dana" onclick="payWith('dana')"><i class="fas fa-wallet"></i> DANA</button>
+                        <button class="payment-btn saweria" onclick="payWith('saweria')"><i class="fas fa-heart"></i> Saweria</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal fade" id="payModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-header border-0">
+                    <h6 class="modal-title mx-auto"><i class="fas fa-credit-card text-primary me-1"></i>Bayar</h6>
+                </div>
+                <div class="modal-body">
+                    <p class="small text-muted mb-1">Total:</p>
+                    <h4 class="fw-bold text-primary mb-3" id="pay-amount">Rp 0</h4>
+                    <div id="pay-info" class="small text-muted mb-3"></div>
+                    <input type="number" class="form-control amount-input mb-2" id="pay-input" placeholder="Masukkan nominal" inputmode="numeric">
+                    <p id="pay-msg" class="small"></p>
+                    <div class="upload-area" onclick="document.getElementById('proof').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p class="mb-0">Upload Bukti Transfer</p>
+                        <small>JPG, PNG, PDF - Max 5MB</small>
+                        <input type="file" id="proof" accept="image/*,.pdf" style="display:none" onchange="fileUp(this)">
+                    </div>
+                    <div id="file-ok" class="alert alert-success small py-1 mt-2 d-none"><i class="fas fa-check"></i> <span id="fname"></span></div>
+                    <div class="progress mt-2 d-none" id="prog"><div class="progress-bar" id="pb" style="width:0%"></div></div>
+                    <p class="small text-muted mt-3"><i class="fas fa-truck me-1"></i>Gratis ongkir JNE/SICEPAT/J&T</p>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
+                    <button class="btn btn-primary btn-sm" id="btn-pay" onclick="processPay()" disabled>Konfirmasi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Inline JS - All Functional -->
+    <script>
+        // === CART SYSTEM ===
+        var cart=JSON.parse(localStorage.getItem('cart')||'[]');
+        function fmt(a){var r=a.toString().split('').reverse().join(''),k=r.match(/\d{1,3}/g);return'Rp '+(k?k.join('.').split('').reverse().join(''):'0')}
+        function calc(){return cart.reduce(function(t,i){return t+i.price*i.quantity},0)}
+        function updCart(){
+            var el=document.getElementById('cart-items'),tot=document.getElementById('cart-total'),cnt=document.getElementById('cart-count');
+            if(!cart.length){el.innerHTML='<p class="text-center text-muted small">Keranjang kosong</p>';tot.innerText='Rp 0';cnt.style.display='none';return}
+            var h='',t=0;cart.forEach(function(it,idx){var s=it.price*it.quantity;t+=s;h+='<div class="d-flex mb-2"><img src="'+it.image+'" style="width:50px;height:50px;object-fit:cover" class="rounded me-2"><div class="flex-grow-1"><small class="fw-bold">'+it.name+'</small><br><span class="text-muted small">Qty:'+it.quantity+'</span></div><div class="fw-bold">'+fmt(s)+'</div><button class="btn btn-sm btn-outline-danger ms-2" onclick="rmItem('+idx+')"><i class="fas fa-trash"></i></button></div>'});
+            el.innerHTML=h;tot.innerText=fmt(t);var c=cart.reduce(function(s,i){return s+i.quantity},0);cnt.textContent=c;cnt.style.display=c?'block':'none'}
+        function rmItem(i){cart.splice(i,1);localStorage.setItem('cart',JSON.stringify(cart));updCart()}
+        function addToCart(id,nm,pr,img){var ex=cart.find(function(x){return x.id===id});if(ex)ex.quantity++;else cart.push({id:id,name:nm,price:pr,image:img,quantity:1});localStorage.setItem('cart',JSON.stringify(cart));updCart();toast(nm+' ditambahkan!')}
+        function toggleWishlist(btn){btn.classList.toggle('active');var i=btn.querySelector('i');if(btn.classList.contains('active')){i.classList.replace('far','fas');i.style.color='#dc3545';toast('Ditambahkan ke favorit!')}else{i.classList.replace('fas','far');i.style.color='';toast('Dihapus dari favorit')}}
+        function toast(m){var t=document.createElement('div');t.className='position-fixed bottom-0 end-0 p-2';t.style.zIndex='9999';t.innerHTML='<div class="toast show bg-success text-white small"><div class="toast-body"><i class="fas fa-check me-1"></i>'+m+'</div></div>';document.body.appendChild(t);setTimeout(function(){t.remove()},2500)}
+        updCart();
+
+        // === ARTICLE FUNCTIONS ===
+        function copyLink(){navigator.clipboard.writeText(window.location.href).then(function(){toast('🔗 Link disalin!')}).catch(function(){alert('Gagal menyalin link')})}
+        
+        // === PAYMENT SYSTEM ===
+        var upl=null,payM='';
+        function payWith(m){if(!cart.length)return alert('Keranjang kosong');payM=m;var t=calc();document.getElementById('pay-amount').innerText=fmt(t);document.getElementById('pay-info').innerHTML=m==='dana'?'<i class="fas fa-wallet"></i> DANA: <b>0838-2189-6240</b><br><span class="text-danger">Harap transfer nominal SAMA PERSIS</span>':'<i class="fas fa-heart"></i> Saweria: <b>saweria.co/WarcehSubang</b><br><span class="text-danger">Donasi nominal SAMA PERSIS</span>';document.getElementById('pay-input').value='';document.getElementById('pay-msg').innerHTML='';document.getElementById('file-ok').classList.add('d-none');document.getElementById('prog').classList.add('d-none');document.getElementById('btn-pay').disabled=true;upl=null;new bootstrap.Modal(document.getElementById('payModal')).show()}
+        function fileUp(e){var f=e.files[0];if(!f)return;if(!/image\/(jpeg|png|jpg)|application\/pdf/.test(f.type))return alert('Format tidak valid');if(f.size>5242880)return alert('File terlalu besar (max 5MB)');upl=f;document.getElementById('fname').innerText=f.name;document.getElementById('file-ok').classList.remove('d-none');chkAmt()}
+        function chkAmt(){var inp=document.getElementById('pay-input'),msg=document.getElementById('pay-msg'),btn=document.getElementById('btn-pay');var exp=calc(),ent=parseInt(inp.value)||0;if(!ent){inp.classList.remove('is-valid','is-invalid');msg.innerHTML='';btn.disabled=true;return false}if(ent!==exp){inp.classList.add('is-invalid');inp.classList.remove('is-valid');msg.innerHTML='<span class="text-danger"><i class="fas fa-times"></i> DITOLAK! Masukkan: '+fmt(exp)+'</span>';btn.disabled=true;return false}inp.classList.remove('is-invalid');inp.classList.add('is-valid');msg.innerHTML='<span class="text-success"><i class="fas fa-check"></i> Nominal sesuai</span>';if(upl)btn.disabled=false;return true}
+        document.getElementById('pay-input').addEventListener('input',chkAmt);
+        function processPay(){if(!chkAmt())return alert('Nominal tidak sesuai');if(!upl)return alert('Upload bukti dulu');var pc=document.getElementById('prog'),pb=document.getElementById('pb');pc.classList.remove('d-none');document.getElementById('btn-pay').disabled=true;var p=0,i=setInterval(function(){p+=20;pb.style.width=p+'%';if(p>=100){clearInterval(i);setTimeout(function(){if(payM==='dana')window.location.href='https://wa.me/6283821896240?text=Pembayaran%20DANA:%20'+fmt(calc());else if(payM==='saweria')window.open('https://saweria.co/WarcehSubang','_blank');localStorage.removeItem('cart');setTimeout(function(){window.location.href='success.html'},500)},300)}},150)}
+
+        // === SOCIAL SHARE ===
+        function shareSocial(p){event.preventDefault();var u=encodeURIComponent(window.location.href),t={facebook:'https://www.facebook.com/sharer/sharer.php?u='+u,instagram:'https://www.instagram.com/',whatsapp:'https://wa.me/?text='+encodeURIComponent('Warceh Subang: '+document.title+' - '+u)};window.open(t[p]||u,'_blank')}
+    </script>
+    
+    <!-- No-JS Fallback -->
+    <noscript>
+        <div style="position:fixed;top:0;left:0;width:100%;background:#fff3cd;color:#856404;padding:1rem;text-align:center;z-index:9999">
+            ⚠️ Website ini membutuhkan JavaScript. Silakan aktifkan JavaScript di browser Anda.
+        </div>
+    </noscript>
+    <script src="analytics-events.js"></script>
+</body>
+</html>
