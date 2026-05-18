@@ -880,6 +880,45 @@
         updCart();
 
         // === PRODUCT FILTER ===
+
+        // === REAL-TIME SEARCH ===
+        function searchProducts(q) {
+            var items = document.querySelectorAll('.product-item');
+            var info = document.getElementById('searchInfo');
+            var count = 0;
+            q = q.trim().toLowerCase();
+
+            // Reset filter buttons
+            document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+            document.querySelector('.filter-btn').classList.add('active');
+
+            items.forEach(function(it) {
+                var name = (it.getAttribute('data-name') || '').toLowerCase();
+                var cat  = (it.getAttribute('data-kategori') || '').toLowerCase();
+                var text = (it.innerText || '').toLowerCase();
+                if (!q || name.includes(q) || cat.includes(q) || text.includes(q)) {
+                    it.style.display = 'block';
+                    count++;
+                } else {
+                    it.style.display = 'none';
+                }
+            });
+
+            if (q) {
+                info.style.display = 'block';
+                info.innerHTML = count > 0
+                    ? '<i class="fas fa-check-circle text-success me-1"></i>' + count + ' produk ditemukan untuk "<strong>' + q + '</strong>"'
+                    : '<i class="fas fa-times-circle text-danger me-1"></i>Tidak ada produk yang cocok dengan "<strong>' + q + '</strong>"';
+            } else {
+                info.style.display = 'none';
+            }
+        }
+        function clearSearch() {
+            var input = document.getElementById('searchProduct');
+            input.value = '';
+            searchProducts('');
+            input.focus();
+        }
         function filterBy(cat){
             document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
             event.currentTarget.classList.add('active');
