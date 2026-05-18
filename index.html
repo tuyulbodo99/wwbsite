@@ -678,13 +678,196 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 
 <script>
-(function(){
-    var PROMO_INTERVAL = 30 * 60 * 1000; // 30 menit
-    var SHOW_DELAY = 3000; // 3 detik setelah halaman dimuat
-    var AUTO_CLOSE = 15000; // 15 detik auto-close
-    var promoProduct = null;
+</script>
+<!-- ===== END FLOATING PROMO ===== -->
 
-    var products = [
+
+<!-- ===== COOKIE CONSENT BANNER ===== -->
+<div id="cookieBanner" role="dialog" aria-label="Persetujuan Cookie" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:10000;padding:1rem;animation:cookieSlideUp .4s ease-out">
+    <div style="max-width:900px;margin:0 auto;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -4px 30px rgba(0,0,0,.15);padding:1.25rem 1.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;font-family:Poppins,sans-serif;">
+        <div style="flex:1;min-width:240px;">
+            <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#0d6efd"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <strong style="color:#1e3a5f;font-size:.9rem;">Kami menggunakan Cookie & Notifikasi</strong>
+            </div>
+            <p style="color:#6c757d;font-size:.78rem;margin:0;line-height:1.5;">Website ini menggunakan cookie untuk meningkatkan pengalaman belanja, menampilkan promo relevan, dan iklan melalui Google AdSense. Dengan melanjutkan, Anda menyetujui <a href="privacy-policy.html" style="color:#0d6efd;">Kebijakan Privasi</a> kami.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;">
+            <button onclick="acceptCookies('all')" style="background:linear-gradient(135deg,#0d6efd,#0b5ed7);color:#fff;border:none;padding:.55rem 1.25rem;border-radius:10px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:Poppins,sans-serif;white-space:nowrap;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">✓ Setuju Semua</button>
+            <button onclick="acceptCookies('required')" style="background:#f8f9fa;color:#495057;border:2px solid #dee2e6;padding:.5rem 1rem;border-radius:10px;font-weight:600;font-size:.82rem;cursor:pointer;font-family:Poppins,sans-serif;white-space:nowrap;transition:all .2s;" onmouseover="this.style.background='#e9ecef'" onmouseout="this.style.background='#f8f9fa'">Hanya Wajib</button>
+            <a href="privacy-policy.html" style="color:#6c757d;font-size:.75rem;text-decoration:none;" onmouseover="this.style.color='#0d6efd'" onmouseout="this.style.color='#6c757d'">Pelajari lebih lanjut</a>
+        </div>
+    </div>
+</div>
+<style>
+@keyframes cookieSlideUp{from{opacity:0;transform:translateY(100%)}to{opacity:1;transform:translateY(0)}}
+@keyframes cookieSlideDown{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(100%)}}
+</style>
+
+<!-- ===== NOTIFICATION PERMISSION PROMPT ===== -->
+<div id="notifPrompt" role="dialog" aria-label="Izin Notifikasi" style="display:none;position:fixed;top:80px;right:16px;z-index:9997;width:300px;max-width:calc(100vw - 32px);animation:promoSlideIn .4s ease-out;font-family:Poppins,sans-serif;">
+    <div style="background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.18);overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#28a745,#20963a);padding:.7rem 1rem;display:flex;justify-content:space-between;align-items:center;">
+            <span style="color:#fff;font-weight:700;font-size:.82rem;display:flex;align-items:center;gap:.4rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+                Aktifkan Notifikasi Promo
+            </span>
+            <button onclick="dismissNotifPrompt()" aria-label="Tutup" style="background:rgba(255,255,255,.2);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;">&times;</button>
+        </div>
+        <div style="padding:1rem;">
+            <p style="font-size:.82rem;color:#495057;margin:0 0 .75rem;line-height:1.5;">Dapatkan notifikasi <strong>promo eksklusif</strong> & penawaran produk langsung ke perangkat Anda, bahkan saat Anda tidak membuka website!</p>
+            <div style="display:flex;gap:.5rem;">
+                <button onclick="requestNotifPermission()" style="flex:1;background:linear-gradient(135deg,#28a745,#20963a);color:#fff;border:none;padding:.55rem;border-radius:10px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:Poppins,sans-serif;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">🔔 Izinkan</button>
+                <button onclick="dismissNotifPrompt()" style="flex:1;background:#f8f9fa;color:#6c757d;border:2px solid #dee2e6;padding:.5rem;border-radius:10px;font-weight:600;font-size:.82rem;cursor:pointer;font-family:Poppins,sans-serif;">Tidak, terima kasih</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+/* ======================================
+   COOKIE UTILITY
+   ====================================== */
+function setCookie(name,val,days){
+    var d=new Date();d.setTime(d.getTime()+(days*24*60*60*1000));
+    document.cookie=name+'='+encodeURIComponent(val)+';expires='+d.toUTCString()+';path=/;SameSite=Lax';
+}
+function getCookie(name){
+    var n=name+'=',ca=document.cookie.split(';');
+    for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(n)===0)return decodeURIComponent(c.substring(n.length))}
+    return null;
+}
+function deleteCookie(name){setCookie(name,'',-1)}
+
+/* ======================================
+   COOKIE CONSENT
+   ====================================== */
+var swReg=null;
+function initConsent(){
+    var consent=getCookie('warceh_consent');
+    if(!consent){
+        setTimeout(function(){
+            document.getElementById('cookieBanner').style.display='block';
+        },1500);
+    } else {
+        initFeatures(consent);
+    }
+}
+function acceptCookies(type){
+    setCookie('warceh_consent',type,365);
+    setCookie('warceh_consent_date',new Date().toISOString(),365);
+    var banner=document.getElementById('cookieBanner');
+    banner.style.animation='cookieSlideDown .3s ease-in forwards';
+    setTimeout(function(){banner.style.display='none'},280);
+    initFeatures(type);
+}
+function initFeatures(consent){
+    registerSW();
+    if(consent==='all'){
+        var notifCookie=getCookie('warceh_notif');
+        if(!notifCookie&&'Notification' in window&&Notification.permission==='default'){
+            setTimeout(function(){
+                document.getElementById('notifPrompt').style.display='block';
+            },4000);
+        } else if(notifCookie==='1'&&Notification.permission==='granted'){
+            schedulePromoNotif();
+        }
+    }
+}
+
+/* ======================================
+   SERVICE WORKER
+   ====================================== */
+function registerSW(){
+    if(!('serviceWorker' in navigator))return;
+    navigator.serviceWorker.register('/sw.js',{scope:'/'}).then(function(reg){
+        swReg=reg;
+        navigator.serviceWorker.addEventListener('message',function(e){
+            if(e.data&&e.data.type==='PONG'){}
+        });
+    }).catch(function(err){});
+}
+
+/* ======================================
+   NOTIFICATION
+   ====================================== */
+function requestNotifPermission(){
+    dismissNotifPrompt();
+    if(!('Notification' in window)){showToast('Browser Anda tidak mendukung notifikasi');return}
+    Notification.requestPermission().then(function(perm){
+        if(perm==='granted'){
+            setCookie('warceh_notif','1',365);
+            showToast('🔔 Notifikasi promo diaktifkan!');
+            schedulePromoNotif();
+            // Send welcome notification via SW
+            if(swReg&&swReg.active){
+                swReg.active.postMessage({
+                    type:'SHOW_PROMO_NOTIF',
+                    product:{
+                        name:'Selamat datang di Warceh Subang!',
+                        desc:'Notifikasi promo berhasil diaktifkan. Nikmati penawaran terbaik!',
+                        price:0,
+                        image:'https://res.cloudinary.com/dihriqgow/image/upload/v1778899338/1778898381_uovhf8.png'
+                    }
+                });
+            } else {
+                new Notification('🎉 Warceh Subang',{
+                    body:'Notifikasi promo berhasil diaktifkan! Anda akan mendapat info promo terbaru.',
+                    icon:'https://res.cloudinary.com/dihriqgow/image/upload/v1778899338/1778898381_uovhf8.png',
+                    tag:'warceh-welcome'
+                });
+            }
+        } else if(perm==='denied'){
+            setCookie('warceh_notif','0',365);
+            showToast('Notifikasi dinonaktifkan. Bisa diubah di pengaturan browser.');
+        }
+    });
+}
+function dismissNotifPrompt(){
+    var p=document.getElementById('notifPrompt');
+    p.style.animation='promoSlideOut .3s ease-in forwards';
+    setTimeout(function(){p.style.display='none';p.style.animation=''},280);
+    setCookie('warceh_notif_asked','1',30);
+}
+function schedulePromoNotif(){
+    if(Notification.permission!=='granted')return;
+    var NOTIF_INTERVAL=30*60*1000; // 30 menit
+    var products=[
+        {name:'Paracetamol 500mg',desc:'Penurun demam & pereda nyeri. Stok terbatas!',price:15000,image:'https://i.ibb.co.com/JjyXPs7g/Pfizer-Paracetamol500mg-Film-Coated-Tablets24-Pack.jpg'},
+        {name:'Vitamin C 1000mg',desc:'Tingkatkan imun tubuh Anda setiap hari!',price:45000,image:'https://i.ibb.co.com/bgR5f8mW/vitamin-c-yang-bagus-untuk-daya-tahan-tubuh-4.jpg'},
+        {name:'Promag',desc:'Redakan maag & asam lambung dengan cepat.',price:28000,image:'https://i.ibb.co.com/JwjHQ7pN/785226-7-1-2026-14-35-34.webp'},
+        {name:'Neurobion Forte',desc:'Vitamin B kompleks untuk kesehatan saraf.',price:55000,image:'https://i.ibb.co.com/Pv2FGTKT/neurobion-neurobion-forte-10-tablet-full14-fgjqaawi.jpg'},
+        {name:'Tensimeter Digital',desc:'Pantau tekanan darah dari rumah dengan mudah!',price:285000,image:'https://i.ibb.co.com/rK5pqgTc/id-11134207-7r98p-lx3qx1do8swr32.jpg'},
+        {name:'Threx',desc:'Atasi batuk & pilek untuk seluruh keluarga.',price:42000,image:'https://i.ibb.co.com/LzhYjvTv/B0-B5-CADCD3-BB14925-C8650-AF8-CC89-CA16-FB2-C2-D029582252-C3-D67173-BFAC5-F99-713x460.jpg'}
+    ];
+    setTimeout(function fireNotif(){
+        if(Notification.permission!=='granted')return;
+        var p=products[Math.floor(Math.random()*products.length)];
+        if(swReg&&swReg.active){
+            swReg.active.postMessage({type:'SHOW_PROMO_NOTIF',product:p});
+        } else {
+            var price=p.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+            new Notification('🌟 '+p.name+' - Promo Hari Ini!',{
+                body:p.desc+'
+💰 Rp '+price+' | Gratis ongkir!',
+                icon:p.image,
+                tag:'warceh-promo',
+                renotify:true
+            });
+        }
+        setTimeout(fireNotif,NOTIF_INTERVAL);
+    },NOTIF_INTERVAL);
+}
+
+/* ======================================
+   PROMO POPUP - COOKIE BASED TIMER
+   ====================================== */
+(function(){
+    var PROMO_INTERVAL=30*60*1000;
+    var SHOW_DELAY=3000;
+    var AUTO_CLOSE=15000;
+    var promoProduct=null;
+    var products=[
         {id:'ob001',name:'Paracetamol 500mg',price:15000,category:'Obat Bebas',badge:'Best Seller',desc:'Penurun demam & pereda nyeri ringan, aman untuk seluruh keluarga.',image:'https://i.ibb.co.com/JjyXPs7g/Pfizer-Paracetamol500mg-Film-Coated-Tablets24-Pack.jpg'},
         {id:'ob002',name:'Promag',price:28000,category:'Obat Lambung',badge:'Populer',desc:'Redakan maag, asam lambung, dan mual dengan cepat & efektif.',image:'https://i.ibb.co.com/JwjHQ7pN/785226-7-1-2026-14-35-34.webp'},
         {id:'vt003',name:'Vitamin C 1000mg',price:45000,category:'Vitamin',badge:'Terlaris',desc:'Tingkatkan daya tahan tubuh & sistem imun. Cocok untuk konsumsi harian.',image:'https://i.ibb.co.com/bgR5f8mW/vitamin-c-yang-bagus-untuk-daya-tahan-tubuh-4.jpg'},
@@ -692,23 +875,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {id:'ob005',name:'Threx',price:42000,category:'Obat Batuk',badge:'Best Seller',desc:'Atasi batuk berdahak dan pilek, cocok untuk dewasa & anak-anak.',image:'https://i.ibb.co.com/LzhYjvTv/B0-B5-CADCD3-BB14925-C8650-AF8-CC89-CA16-FB2-C2-D029582252-C3-D67173-BFAC5-F99-713x460.jpg'},
         {id:'vt008',name:'Neurobion Forte',price:55000,category:'Vitamin B',badge:'Populer',desc:'Vitamin B kompleks untuk kesehatan saraf, kurangi kesemutan.',image:'https://i.ibb.co.com/Pv2FGTKT/neurobion-neurobion-forte-10-tablet-full14-fgjqaawi.jpg'},
         {id:'ob007',name:'Antimo',price:12000,category:'Obat Bebas',badge:'Hemat',desc:'Cegah mabuk perjalanan. Efektif atasi mual & pusing saat bepergian.',image:'https://i.ibb.co.com/vxGGTsyp/Antimo-Tablet.png'},
-        {id:'ak014',name:'Tensimeter Digital',price:285000,category:'Alat Kesehatan',badge:'Promo!',desc:'Monitor tekanan darah akurat dari rumah. Mudah digunakan oleh siapa saja.',image:'https://i.ibb.co.com/rK5pqgTc/id-11134207-7r98p-lx3qx1do8swr32.jpg'}
+        {id:'ak014',name:'Tensimeter Digital',price:285000,category:'Alat Kesehatan',badge:'Promo!',desc:'Monitor tekanan darah akurat dari rumah. Mudah digunakan siapa saja.',image:'https://i.ibb.co.com/rK5pqgTc/id-11134207-7r98p-lx3qx1do8swr32.jpg'}
     ];
-
     function fmtRp(a){var r=a.toString().split('').reverse().join(''),k=r.match(/\d{1,3}/g);return'Rp '+(k?k.join('.').split('').reverse().join(''):'0')}
-
-    function shouldShow(){
-        try{
-            var last=parseInt(localStorage.getItem('warceh_promo_last')||'0');
-            return Date.now()-last >= PROMO_INTERVAL;
-        }catch(e){return true}
+    function shouldShowPopup(){
+        // Cookie takes priority, fallback to localStorage
+        var cookieVal=getCookie('warceh_promo_ts');
+        var lsVal=null;
+        try{lsVal=localStorage.getItem('warceh_promo_last')}catch(e){}
+        var last=parseInt(cookieVal||lsVal||'0');
+        return Date.now()-last>=PROMO_INTERVAL;
     }
-
-    function showPromo(){
-        if(!shouldShow())return;
+    function markPromoShown(){
+        var ts=Date.now().toString();
+        setCookie('warceh_promo_ts',ts,1);
+        try{localStorage.setItem('warceh_promo_last',ts)}catch(e){}
+    }
+    function showPromoPopup(){
+        if(!shouldShowPopup())return;
+        var popup=document.getElementById('promoPopup');
+        if(!popup)return;
         var idx=Math.floor(Math.random()*products.length);
         promoProduct=products[idx];
-        var popup=document.getElementById('promoPopup');
         document.getElementById('promoImg').src=promoProduct.image;
         document.getElementById('promoName').textContent=promoProduct.name;
         document.getElementById('promoPrice').textContent=fmtRp(promoProduct.price);
@@ -716,41 +904,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         document.getElementById('promoCategory').textContent=promoProduct.category;
         document.getElementById('promoBadge').textContent=promoProduct.badge;
         popup.style.display='block';
-        try{localStorage.setItem('warceh_promo_last',Date.now().toString())}catch(e){}
-        // Timer bar animation
+        markPromoShown();
         var bar=document.getElementById('promoTimer');
         bar.style.transition='none';bar.style.width='100%';
-        setTimeout(function(){bar.style.transition='width '+AUTO_CLOSE+'ms linear';bar.style.width='0%';},50);
-        // Auto close
-        setTimeout(function(){if(document.getElementById('promoPopup').style.display!=='none')closePromo();},AUTO_CLOSE);
+        setTimeout(function(){bar.style.transition='width '+AUTO_CLOSE+'ms linear';bar.style.width='0%'},50);
+        setTimeout(function(){if(document.getElementById('promoPopup').style.display!=='none')window.closePromo&&window.closePromo()},AUTO_CLOSE);
     }
-
-    window.closePromo=function(){
-        var p=document.getElementById('promoPopup');
-        p.style.animation='promoSlideOut .3s ease-in forwards';
-        setTimeout(function(){p.style.display='none';p.style.animation='';},280);
-    };
-
     window.promoAddCart=function(){
         if(!promoProduct)return;
         var cart=JSON.parse(localStorage.getItem('cart')||'[]');
         var ex=cart.find(function(x){return x.id===promoProduct.id});
-        if(ex)ex.quantity++;
-        else cart.push({id:promoProduct.id,name:promoProduct.name,price:promoProduct.price,image:promoProduct.image,quantity:1});
+        if(ex)ex.quantity++;else cart.push({id:promoProduct.id,name:promoProduct.name,price:promoProduct.price,image:promoProduct.image,quantity:1});
         localStorage.setItem('cart',JSON.stringify(cart));
         if(typeof updateCartUI==='function')updateCartUI();
         var btn=document.getElementById('promoCartBtn');
         btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Ditambahkan!';
         btn.style.background='linear-gradient(135deg,#28a745,#20963a)';
-        setTimeout(function(){closePromo();},1200);
+        setTimeout(function(){window.closePromo&&window.closePromo()},1200);
     };
-
     document.addEventListener('DOMContentLoaded',function(){
-        setTimeout(showPromo, SHOW_DELAY);
+        setTimeout(showPromoPopup,SHOW_DELAY);
     });
 })();
+
+document.addEventListener('DOMContentLoaded',function(){initConsent();});
 </script>
-<!-- ===== END FLOATING PROMO ===== -->
+<!-- ===== END COOKIE & NOTIFICATION ===== -->
 
     <script src="protect.js"></script>
     <script src="analytics-events.js"></script>
