@@ -794,44 +794,21 @@
 
         // === LOAD MORE PRODUCTS ===
         function loadMoreProducts(){
-            var btn=event.target;
+            var btn=document.getElementById('btnLoadMore');
             btn.disabled=true;
             btn.innerHTML='<i class="fas fa-spinner fa-spin me-2"></i> Memuat...';
             setTimeout(function(){
-                // Simulate adding more products
-                var grid=document.getElementById('productGrid');
-                var newItems='';
-                for(var i=0;i<6;i++){
-                    newItems+=`<div class="col-md-6 col-lg-4 fade-in-up" style="animation-delay:${Math.random()*0.3}s;">
-                        <div class="card product-card h-100">
-                            <div class="card-img-wrapper">
-                                <img src="https://via.placeholder.com/300x200/eef2ff/0d6efd?text=Produk+Baru" class="card-img-top" alt="Produk Baru" loading="lazy">
-                                <span class="position-absolute top-2 end-2 badge bg-warning text-dark">New</span>
-                            </div>
-                            <div class="card-body">
-                                <span class="badge badge-category mb-2">Obat Bebas</span>
-                                <h5 class="card-title">Produk Baru #${Math.floor(Math.random()*100)}</h5>
-                                <p class="card-text text-muted small">Deskripsi produk baru yang menarik untuk kesehatan Anda.</p>
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                    <span class="price-tag">Rp ${Math.floor(Math.random()*100000)+10000}</span>
-                                </div>
-                                <div class="d-flex gap-2 mt-3">
-                                    <button class="btn btn-sm btn-outline-primary" onclick="addToCart('p${Math.floor(Math.random()*1000)}','Produk Baru #${Math.floor(Math.random()*1000)}',${Math.floor(Math.random()*100000)+10000},'https://via.placeholder.com/300x200/eef2ff/0d6efd?text=Produk+Baru')">
-                                        <i class="fas fa-cart-plus"></i> Tambah
-                                    </button>
-                                    <button class="btn btn-sm btn-outline-danger" onclick="toggleWishlist(this)">
-                                        <i class="far fa-heart"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>`;
-                }
-                grid.insertAdjacentHTML('beforeend',newItems);
-                btn.disabled=false;
-                btn.innerHTML='<i class="fas fa-sync-alt me-2"></i> Muat Lebih Banyak Produk';
-                toast('✅ '+6+' produk baru dimuat!');
-            },1500);
+                var extras=document.querySelectorAll('.extra-product');
+                var count=extras.length;
+                extras.forEach(function(el){
+                    el.style.display='block';
+                    el.classList.remove('extra-product');
+                    el.classList.add('fade-in-up');
+                });
+                document.getElementById('loadMoreWrapper').style.display='none';
+                var total=document.querySelectorAll('.product-item').length;
+                toast('✅ '+count+' produk berhasil dimuat! Total '+total+' produk ditampilkan.');
+            },1000);
         }
 
         // === PAYMENT SYSTEM ===
